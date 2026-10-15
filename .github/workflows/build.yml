@@ -13,11 +13,21 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Unzip project if zipped
+    - name: Unzip and Fix Paths
       run: |
         if [ -f "PhotoCraft-Android-Project.zip" ]; then
-          unzip -o PhotoCraft-Android-Project.zip
+          unzip -o PhotoCraft-Android-Project.zip -d extracted_project
+        elif [ -f "PhotoCraft-Android.zip" ]; then
+          unzip -o PhotoCraft-Android.zip -d extracted_project
         fi
+        
+        # Move files to root if they are inside a subfolder
+        if [ -d "extracted_project/PhotoCraft-Android" ]; then
+          cp -r extracted_project/PhotoCraft-Android/* .
+        elif [ -d "extracted_project" ]; then
+          cp -r extracted_project/* .
+        fi
+        
         mkdir -p app/src/main/assets
         if [ -f "photocraft-mobile.html" ]; then
           cp photocraft-mobile.html app/src/main/assets/
