@@ -15,22 +15,27 @@ jobs:
 
     - name: Unzip and Fix Paths
       run: |
-        if [ -f "PhotoCraft-Android-Project.zip" ]; then
-          unzip -o PhotoCraft-Android-Project.zip -d extracted_project
-        elif [ -f "PhotoCraft-Android.zip" ]; then
-          unzip -o PhotoCraft-Android.zip -d extracted_project
+        # البحث عن أي ملف مضغوط في المستودع وفك ضخه
+        ZIP_FILE=$(find . -maxdepth 1 -name "*.zip" | head -n 1)
+        if [ -n "$ZIP_FILE" ]; then
+          echo "Found zip file: $ZIP_FILE"
+          unzip -o "$ZIP_FILE" -d extracted_project
         fi
         
-        # Move files to root if they are inside a subfolder
-        if [ -d "extracted_project/PhotoCraft-Android" ]; then
-          cp -r extracted_project/PhotoCraft-Android/* .
-        elif [ -d "extracted_project" ]; then
-          cp -r extracted_project/* .
+        # نقل الملفات للمسار الرئيسي إذا كانت داخل مجلد فرعي
+        if [ -d "extracted_project" ]; then
+          SUBDIR=$(find extracted_project -mindepth 1 -maxdepth 1 -type d | head -n 1)
+          if [ -n "$SUBDIR" ]; then
+            cp -r "$SUBDIR"/* . 2>/dev/null || true
+          fi
+          cp -r extracted_project/* . 2>/dev/null || true
         fi
         
+        # وضع ملف الـ HTML في مجلد الأصول إذا وجد
         mkdir -p app/src/main/assets
-        if [ -f "photocraft-mobile.html" ]; then
-          cp photocraft-mobile.html app/src/main/assets/
+        HTML_FILE=$(find . -maxdepth 1 -name "*.html" | head -n 1)
+        if [ -n "$HTML_FILE" ]; then
+          cp "$HTML_FILE" app/src/main/assets/
         fi
 
     - name: Set up JDK 17
@@ -46,7 +51,7 @@ jobs:
       run: ./gradlew assembleDebug || gradle assembleDebug
 
     - name: Upload APK
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: PhotoCraft-APK
         path: app/build/outputs/apk/debug/app-debug.apk
