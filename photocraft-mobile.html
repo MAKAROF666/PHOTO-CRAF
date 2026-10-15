@@ -1,0 +1,704 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#323232"><title>فوتو كرافت</title><style>:root{--c0:#1d1d1d;--c1:#282828;--c2:#323232;--c3:#3b3b3b;--c4:#4a4a4a;--bd:#141414;--tx:#e8e8e8;--mu:#9b9b9b;--ac:#2f7bf5;--dg:#e5484d;color-scheme:dark;box-sizing:border-box}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:var(--c1);color:var(--tx);font:13px/1.35 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Arabic",Tahoma,sans-serif;overflow:hidden;overscroll-behavior:none;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent}
+body{display:flex;flex-direction:column;position:relative}
+button{font:inherit;color:inherit;touch-action:manipulation;cursor:pointer}
+svg{display:block;pointer-events:none}
+#menubar{display:flex;height:38px;flex:none;background:var(--c2);border-bottom:1px solid var(--bd)}
+#menus{flex:1;display:flex;overflow-x:auto;scrollbar-width:none;min-width:0}
+#menus button{flex:none;background:none;border:0;padding:0 12px;font-size:13px}
+#menus button.on{background:var(--c4)}
+#acts{display:flex;align-items:center;gap:2px;padding:0 4px;border-right:1px solid var(--bd);direction:ltr}
+.ib{width:34px;height:34px;display:grid;place-items:center;background:none;border:0;border-radius:6px}
+.ib:active{background:var(--c4)}.ib[disabled]{opacity:.3}
+.pb{background:var(--ac);border:0;border-radius:6px;padding:7px 12px;font-weight:600;color:#fff;margin-inline-start:4px}
+#opts{height:46px;flex:none;display:flex;align-items:center;gap:10px;padding:0 10px;background:var(--c2);border-bottom:1px solid var(--bd);overflow-x:auto;scrollbar-width:none}
+.og{display:flex;align-items:center;gap:6px;flex:none}.og>span{color:var(--mu);font-size:12px}.og>b{min-width:30px;font-weight:500;font-size:12px}
+.sep{width:1px;height:24px;background:var(--bd);flex:none}
+.chip{flex:none;background:var(--c3);border:1px solid var(--bd);border-radius:6px;padding:6px 10px;font-size:12px}
+.chip.on{background:var(--ac);border-color:var(--ac);color:#fff}
+.chip.d{color:#ff7b80}
+input[type=range]{accent-color:var(--ac);min-width:0;direction:ltr}
+.mr{width:96px}
+#main{flex:1;min-height:0;display:flex;flex-direction:column}
+#mid{flex:1;min-height:0;display:flex;direction:ltr}
+#tools{width:48px;flex:none;background:var(--c2);border-right:1px solid var(--bd);display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 0;overflow-y:auto;scrollbar-width:none}
+.tl{width:40px;height:40px;flex:none;display:grid;place-items:center;background:none;border:1px solid transparent;border-radius:6px;color:#cfcfcf}
+.tl.on{background:var(--c4);border-color:var(--ac);color:#fff}
+.tsep{width:28px;height:1px;background:var(--bd);margin:3px 0;flex:none}
+#cols{position:relative;width:38px;height:40px;margin:6px 0;flex:none}
+#cols i{position:absolute;width:22px;height:22px;border:1px solid #000;outline:1px solid #888;cursor:pointer}
+#cfg{left:2px;top:2px;z-index:2}#cbg{left:14px;top:14px}
+#sw{flex:1;min-width:0;display:flex;flex-direction:column}
+#tab{height:26px;flex:none;background:var(--c2);border-bottom:1px solid var(--bd);display:flex;align-items:center;padding:0 10px;font-size:11.5px;white-space:nowrap;overflow:hidden;direction:ltr}
+#tab span{background:var(--c3);padding:4px 10px;border-radius:4px 4px 0 0;overflow:hidden;text-overflow:ellipsis}
+#stage{flex:1;position:relative;overflow:hidden;touch-action:none;background:var(--c0);min-height:0}
+#doc{position:absolute;left:0;top:0;transform-origin:0 0}
+#cv,#so{position:absolute;left:0;top:0;display:block}
+#cv{background:repeating-conic-gradient(#8a8a8a 0 25%,#5d5d5d 0 50%) 0 0/20px 20px;box-shadow:0 0 0 1px #000,0 10px 40px #0009;position:relative}
+#so{pointer-events:none}
+#bx{position:absolute;display:none;border:var(--bw,2px) solid var(--ac);pointer-events:none}
+#cr{position:absolute;display:none;box-shadow:0 0 0 9999px #000a;border:var(--bw,2px) solid #fff;background:linear-gradient(#fff6,#fff6) 33.33% 0/var(--bw,1px) 100% no-repeat,linear-gradient(#fff6,#fff6) 66.66% 0/var(--bw,1px) 100% no-repeat,linear-gradient(#fff6,#fff6) 0 33.33%/100% var(--bw,1px) no-repeat,linear-gradient(#fff6,#fff6) 0 66.66%/100% var(--bw,1px) no-repeat}
+#cr b{position:absolute;width:var(--hs,14px);height:var(--hs,14px);background:#fff;border:var(--bw,1px) solid #000;margin:calc(var(--hs,14px)/-2)}
+#dock{flex:none;display:flex;flex-direction:column;background:var(--c3);border-top:1px solid var(--bd)}
+#dtabs{display:flex;height:42px;background:var(--c2)}
+#dtabs button{flex:1;display:grid;place-items:center;background:none;border:0;color:var(--mu);border-top:2px solid transparent}
+#dtabs button.on{color:#fff;background:var(--c3);border-top-color:var(--ac)}
+#dbody{height:0;overflow:hidden;display:flex;flex-direction:column}
+#dock.open #dbody{height:38vh}
+.pn{flex:1;min-height:0;overflow:auto;padding:8px 12px 14px}
+.ph{display:flex;align-items:center;gap:8px;margin:2px 0 8px;font-weight:600}
+.rg{display:flex;align-items:center;gap:8px;margin:6px 0}.rg>span{width:92px;flex:none;color:var(--mu);font-size:12px}
+.rg input[type=range]{flex:1}.rg>b{width:40px;text-align:center;font-weight:500;font-size:12px}
+select,input[type=text],input[type=number],textarea{font:inherit;background:var(--c0);color:var(--tx);border:1px solid var(--bd);border-radius:5px;padding:6px 8px;-webkit-user-select:text;user-select:text;min-width:0}
+textarea{width:100%;resize:none}
+.sw{width:34px;height:24px;border:1px solid #000;outline:1px solid #777;border-radius:2px;padding:0}
+details{border-top:1px solid var(--bd);margin-top:8px;padding-top:6px}summary{padding:6px 0;font-weight:600;list-style:none;cursor:pointer}
+summary::before{content:"▸ ";color:var(--mu)}details[open]>summary::before{content:"▾ "}
+.btns{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.lh{display:flex;align-items:center;gap:8px;padding:7px 10px;border-bottom:1px solid var(--bd);flex:none}
+.lh select{flex:none;width:106px}.lh input[type=range]{flex:1}.lh b{width:38px;text-align:center;font-weight:500}
+.ll{flex:1;min-height:0;overflow:auto;background:var(--c1)}
+.lr{display:flex;align-items:center;gap:8px;padding:4px 8px;height:46px;border-bottom:1px solid var(--bd);background:var(--c3)}
+.lr.on{background:var(--c4);box-shadow:inset 3px 0 0 var(--ac)}
+.lr .ev{width:26px;display:grid;place-items:center;color:#cfcfcf;flex:none}
+canvas.th{width:34px;height:34px;flex:none;background:repeating-conic-gradient(#888 0 25%,#555 0 50%) 0 0/8px 8px;border:1px solid #000}
+canvas.mt{background:#000;margin-inline-start:-2px}canvas.mt.on{outline:2px solid var(--ac)}
+.lr .ln{flex:1;min-width:0;display:flex;flex-direction:column}.lr .ln b{font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.lr .ln small{color:var(--mu);font-size:11px}
+.lr em{font-style:normal;color:var(--mu);font-size:11px;border:1px solid var(--mu);border-radius:3px;padding:0 4px}
+.lb{display:flex;justify-content:space-around;padding:4px;border-top:1px solid var(--bd);flex:none;background:var(--c2)}
+.gr{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.gt{display:flex;flex-direction:column;align-items:center;gap:4px;background:var(--c2);border:1px solid var(--bd);border-radius:8px;padding:10px 2px;font-size:11px;text-align:center}
+.hl{display:flex;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid var(--bd)}.hl.on{background:var(--c4)}.hl.fu{opacity:.45}
+canvas.hg{width:100%;background:var(--c0);border:1px solid var(--bd);display:block;touch-action:none}
+#pop{position:absolute;left:0;right:0;top:38px;max-height:66%;overflow:auto;background:var(--c2);border-bottom:1px solid #000;box-shadow:0 14px 34px #000a;display:none;z-index:20}
+#pop button{display:block;width:100%;text-align:start;background:none;border:0;border-bottom:1px solid var(--bd);padding:13px 18px;font-size:14px}
+#pop button:active{background:var(--c4)}#pop button[disabled]{opacity:.35}
+#dlg{position:absolute;inset:0;background:#000b;display:none;align-items:center;justify-content:center;z-index:30;padding:12px}
+#dlg .card{background:var(--c2);border:1px solid #000;border-radius:10px;width:min(100%,390px);max-height:100%;overflow:auto;padding:14px}
+#dlg h3{margin:0 0 10px;font-size:15px}.dbt{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}.dbt button{padding:9px 16px;border-radius:6px;border:1px solid var(--bd);background:var(--c3)}.dbt .p{background:var(--ac);border-color:var(--ac);color:#fff}
+.fr{display:flex;align-items:center;gap:8px;margin:8px 0}.fr>span{width:70px;color:var(--mu)}.fr input[type=number]{width:90px}
+#svc{width:100%;height:150px;border-radius:4px;touch-action:none;display:block}
+#hue{width:100%;margin:10px 0}
+.pal{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin-top:10px}.pal i{aspect-ratio:1;border:1px solid #000;border-radius:3px}
+#start{position:absolute;inset:0;background:var(--c1);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:24px;z-index:10}
+#start h1{margin:6px 0 0;font-size:30px;letter-spacing:.3px}#start p{margin:0 0 14px;color:var(--mu);max-width:290px}
+#start .pb,#start .chip{width:250px;padding:14px;font-size:15px;margin:0}
+#toast{position:absolute;left:50%;bottom:92px;transform:translateX(-50%);background:#000d;color:#fff;padding:9px 16px;border-radius:20px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:40;white-space:nowrap}
+#status{height:24px;flex:none;display:flex;align-items:center;gap:14px;padding:0 10px;background:var(--c2);border-top:1px solid var(--bd);color:var(--mu);font-size:11.5px;white-space:nowrap;overflow:hidden;direction:ltr}
+@media (orientation:landscape) and (max-height:540px){#main{flex-direction:row}#dock{width:300px;border-top:0;border-left:1px solid var(--bd)}#dbody,#dock.open #dbody{height:auto;flex:1;min-height:0}#menubar{height:34px}#opts{height:42px}#pop{top:34px}}
+.ai{flex:1;min-height:0;display:flex;flex-direction:column}.ailog{flex:1;overflow:auto;padding:8px 12px}.m{margin:6px 0;padding:8px 11px;border-radius:12px;max-width:92%;line-height:1.55;-webkit-user-select:text;user-select:text}.m.u{background:var(--ac);margin-inline-start:auto;color:#fff}.m.a{background:var(--c2)}.aich{display:flex;gap:6px;overflow-x:auto;padding:4px 10px;scrollbar-width:none;flex:none}.aiin{display:flex;gap:6px;padding:8px;border-top:1px solid var(--bd);flex:none;align-items:flex-end}.aiin textarea{flex:1;max-height:80px}
+</style></head><body><div id="menubar"><nav id="menus"></nav><div id="acts"><button class="ib" data-a="undo" id="bu" title="تراجع"></button><button class="ib" data-a="redo" id="br" title="إعادة"></button><button class="pb" data-a="menu" data-v="tx">تصدير</button></div></div>
+<div id="opts"></div>
+<div id="main">
+ <div id="mid"><div id="tools"></div>
+  <div id="sw"><div id="tab"><span></span></div>
+   <div id="stage"><div id="doc"><canvas id="cv"></canvas><canvas id="so"></canvas><div id="bx"></div><div id="cr"><b style="left:0;top:0" data-h="nw"></b><b style="left:50%;top:0" data-h="n"></b><b style="left:100%;top:0" data-h="ne"></b><b style="left:100%;top:50%" data-h="e"></b><b style="left:100%;top:100%" data-h="se"></b><b style="left:50%;top:100%" data-h="s"></b><b style="left:0;top:100%" data-h="sw"></b><b style="left:0;top:50%" data-h="w"></b></div></div></div>
+  </div>
+ </div>
+ <div id="dock"><div id="dtabs"></div><div id="dbody"></div></div>
+</div>
+<div id="status"></div>
+<div id="pop"></div><div id="dlg"></div>
+<div id="start"><svg viewBox="0 0 64 64" width="78" height="78"><rect width="64" height="64" rx="16" fill="#2f7bf5"/><g fill="none" stroke="#efe9dc" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="13"/><path d="M32 19l8 14M45 32l-14 8M32 45l-8-14M19 32l14-8"/></g></svg><h1>فوتو كرافت</h1><p>محرر صور احترافي للهاتف: طبقات، أقنعة، تحديدات، منحنيات وأنماط.</p><button class="pb" data-a="open">فتح صورة</button><button class="chip" data-a="new">مستند جديد</button></div>
+<div id="toast"></div><input type="file" id="fi" accept="image/*" hidden>
+<script>'use strict';
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const cv=$('#cv'),cx=cv.getContext('2d',{willReadFrequently:true}),so=$('#so'),sx=so.getContext('2d'),stage=$('#stage');
+const MAXD=2048,BIG=9000;
+let W=0,H=0,L=[],act=null,selM=null,edge=null,editMask=false,docName='بدون عنوان',uid=1,nameN=1;
+let fg='#000000',bgc='#ffffff',tool='move',view={x:0,y:0,k:1},zoomed=false,stroke=null;
+const T={brush:{size:30,hard:60,op:100},eraser:{size:40,hard:80,op:100},mq:{shape:'r',mode:'new'},lasso:{mode:'new'},wand:{tol:32,contig:1,mode:'new'},move:{auto:1},grad:{type:'lin',rev:0},bucket:{tol:32},shape:{kind:'r'},crop:{ratio:'free'},text:{sz:120,b:1},eye:{bg:0},zoom:{out:0},hand:{}};
+const mk=(w,h)=>{const c=document.createElement('canvas');c.width=Math.max(1,Math.round(w));c.height=Math.max(1,Math.round(h));return c};
+const cl=c=>{const n=mk(c.width,c.height);n.getContext('2d').drawImage(c,0,0);return n};
+const cp=o=>o?structuredClone(o):o;
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+const rgb=c=>[1,3,5].map(i=>parseInt(c.slice(i,i+2),16));
+const rgba=(c,a)=>{const[r,g,b]=rgb(c);return`rgba(${r},${g},${b},${a})`};
+const lum=c=>{const[r,g,b]=rgb(c);return .299*r+.587*g+.114*b};
+const h2=n=>Math.round(clamp(n,0,255)).toString(16).padStart(2,'0');
+const toast=t=>{const e=$('#toast');e.textContent=t;e.style.opacity=1;clearTimeout(toast.t);toast.t=setTimeout(()=>e.style.opacity=0,1900)};
+const rst=g=>{g.setTransform(1,0,0,1,0,0);g.globalAlpha=1;g.globalCompositeOperation='source-over';g.shadowColor='transparent';g.shadowBlur=0;g.shadowOffsetX=g.shadowOffsetY=0;return g};
+let tA,tB,tC,tP,tS;
+function tmps(){if(tA&&tA.width==W&&tA.height==H)return;[tA,tB,tC,tP,tS]=[0,0,0,0,0].map(()=>mk(W,H))}
+const g2=c=>{const g=c.getContext('2d');rst(g);return g};
+const clr=c=>{const g=g2(c);g.clearRect(0,0,c.width,c.height);return g};
+/* ---------- adjustments catalogue ---------- */
+const ADJ={
+bc:{n:'السطوع/التباين',def:{br:0,ct:0},sl:[['br','السطوع',-100,100],['ct','التباين',-100,100]]},
+lv:{n:'المستويات',def:{ib:0,ig:100,iw:255,ob:0,ow:255},sl:[['ib','مدخل الأسود',0,253],['ig','غاما',10,999,1,100],['iw','مدخل الأبيض',2,255],['ob','مخرج الأسود',0,255],['ow','مخرج الأبيض',0,255]]},
+cu:{n:'المنحنيات',def:{cv:{rgb:[[0,0],[255,255]],r:[[0,0],[255,255]],g:[[0,0],[255,255]],b:[[0,0],[255,255]]}},sl:[]},
+vi:{n:'الحيوية',def:{vib:0,sat:0},sl:[['vib','الحيوية',-100,100],['sat','التشبع',-100,100]]},
+hs:{n:'تدرج اللون/التشبع',def:{hue:0,sat:0,lig:0},sl:[['hue','تدرج اللون',-180,180],['sat','التشبع',-100,100],['lig','الإضاءة',-100,100]]},
+bw:{n:'أبيض وأسود',def:{bw:100},sl:[['bw','الشدة',0,100]]},
+wb:{n:'حرارة اللون',def:{tmp:0,tint:0},sl:[['tmp','الحرارة',-100,100],['tint','الصبغة',-100,100]]},
+inv:{n:'عكس الألوان',def:{inv:1},sl:[]},
+th:{n:'العتبة',def:{thr:128},sl:[['thr','المستوى',1,255]]},
+po:{n:'تقطيع الألوان',def:{post:4},sl:[['post','المستويات',2,32]]},
+vg:{n:'تظليل الحواف',def:{vig:50},sl:[['vig','الشدة',0,100]]},
+bl:{n:'تمويه غاوسي',def:{blur:6},sl:[['blur','نصف القطر',0,40]]},
+sh:{n:'شحذ',def:{sharp:60},sl:[['sharp','الكمية',0,100]]},
+no:{n:'إضافة ضوضاء',def:{noise:20},sl:[['noise','الكمية',0,100]]},
+px:{n:'تبكسل',def:{pix:12},sl:[['pix','حجم الخلية',2,80]]},
+pre:{n:'فلتر جاهز',def:{},sl:[]}};
+const PR={'نابض':{sat:25,vib:30,ct:10},'دافئ':{tmp:40,sat:10,br:5},'بارد':{tmp:-40,sat:5},'أحادي':{bw:100,ct:15},'باهت':{ct:-20,br:10,sat:-25},'دراما':{ct:35,sat:-10,vig:50,br:-8},'سينمائي':{tmp:-15,ct:20,sat:-10,vig:30},'قديم':{tmp:25,sat:-30,ct:-10,vig:40,noise:12}};
+/* ---------- processing ---------- */
+function bx(s,o,n,len,stp,ls,r){const win=2*r+1;for(let c=0;c<4;c++)for(let j=0;j<n;j++){const b=j*ls+c;let sum=0;for(let i=-r;i<=r;i++)sum+=s[b+Math.min(len-1,Math.max(0,i))*stp];for(let i=0;i<len;i++){o[b+i*stp]=sum/win;sum+=s[b+Math.min(len-1,i+r+1)*stp]-s[b+Math.max(0,i-r)*stp]}}}
+function blur(d,r){r=Math.round(r);if(r<1)return;const w=d.width,h=d.height,a=d.data,t=new Uint8ClampedArray(a.length);for(let n=0;n<2;n++){bx(a,t,h,w,4,w*4,r);bx(t,a,w,h,w*4,4,r)}}
+function pixelate(d,n){n=Math.round(n);const w=d.width,h=d.height,a=d.data;for(let by=0;by<h;by+=n)for(let bxx=0;bxx<w;bxx+=n){let r=0,g=0,b=0,al=0,c=0;const ye=Math.min(h,by+n),xe=Math.min(w,bxx+n);for(let y=by;y<ye;y++)for(let x=bxx;x<xe;x++){const i=(y*w+x)*4;r+=a[i];g+=a[i+1];b+=a[i+2];al+=a[i+3];c++}r/=c;g/=c;b/=c;al/=c;for(let y=by;y<ye;y++)for(let x=bxx;x<xe;x++){const i=(y*w+x)*4;a[i]=r;a[i+1]=g;a[i+2]=b;a[i+3]=al}}}
+function curveLUT(pts){const P=[...pts].sort((a,b)=>a[0]-b[0]),n=P.length,lut=new Uint8Array(256);if(n<2){for(let i=0;i<256;i++)lut[i]=i;return lut}
+const xs=P.map(p=>p[0]),ys=P.map(p=>p[1]),dx=[],m=[],c1=[];for(let i=0;i<n-1;i++){dx[i]=(xs[i+1]-xs[i])||1e-6;m[i]=(ys[i+1]-ys[i])/dx[i]}
+c1[0]=m[0];c1[n-1]=m[n-2];for(let i=1;i<n-1;i++)c1[i]=m[i-1]*m[i]<=0?0:(m[i-1]+m[i])/2;
+for(let i=0;i<n-1;i++){if(m[i]==0){c1[i]=c1[i+1]=0}else{const a=c1[i]/m[i],b=c1[i+1]/m[i],s=a*a+b*b;if(s>9){const t=3/Math.sqrt(s);c1[i]=t*a*m[i];c1[i+1]=t*b*m[i]}}}
+for(let x=0;x<256;x++){let v;if(x<=xs[0])v=ys[0];else if(x>=xs[n-1])v=ys[n-1];else{let i=0;while(x>xs[i+1])i++;const t=(x-xs[i])/dx[i],t2=t*t,t3=t2*t;v=(2*t3-3*t2+1)*ys[i]+(t3-2*t2+t)*dx[i]*c1[i]+(-2*t3+3*t2)*ys[i+1]+(t3-t2)*dx[i]*c1[i+1]}lut[x]=clamp(Math.round(v),0,255)}return lut}
+function lutOf(p){let base=null;if(p.ib!=null){const ib=p.ib,iw=Math.max(ib+1,p.iw),gm=p.ig/100,ob=p.ob,ow=p.ow;base=new Uint8Array(256);for(let i=0;i<256;i++){const v=Math.pow(clamp((i-ib)/(iw-ib),0,1),1/gm);base[i]=ob+(ow-ob)*v}}
+if(!p.cv&&!base)return null;const M=p.cv?curveLUT(p.cv.rgb):null,out=[];
+for(const ch of['r','g','b']){const C=p.cv?curveLUT(p.cv[ch]):null,l=new Uint8Array(256);for(let i=0;i<256;i++){let v=base?base[i]:i;if(M)v=M[v];if(C)v=C[v];l[i]=v}out.push(l)}return out}
+function adj(d,l){const p={...l.p},k=l.kind=='pre'?l.k/100:1;if(k!=1)for(const i in p)if(typeof p[i]=='number')p[i]*=k;
+const a=d.data,w=d.width,h=d.height;
+if(p.pix>=2)pixelate(d,p.pix);
+if(p.blur>0)blur(d,p.blur);
+if(p.sharp>0){const o=new Uint8ClampedArray(a),m=p.sharp/40;blur(d,1.5);for(let i=0;i<a.length;i+=4){for(let c=0;c<3;c++)a[i+c]=o[i+c]+(o[i+c]-a[i+c])*m;a[i+3]=o[i+3]}}
+if(p.noise>0){const n=p.noise*2.55;for(let i=0;i<a.length;i+=4){const z=(Math.random()-.5)*n;a[i]+=z;a[i+1]+=z;a[i+2]+=z}}
+const lut=lutOf(p),Br=(p.br||0)*2.55,C=1+(p.ct||0)/100,Tm=(p.tmp||0)*.5,Tn=(p.tint||0)*.3,hu=p.hue||0,S=1+(p.sat||0)/100,V=(p.vib||0)/100,Li=(p.lig||0)/100,Z=(p.bw||0)/100,G=(p.vig||0)/100,thr=p.thr,po=p.post,inv=p.inv;
+if(!(lut||Br||p.ct||Tm||Tn||hu||p.sat||V||Li||Z||G||thr||po||inv))return;
+const rd=hu*Math.PI/180,c=Math.cos(rd),s=Math.sin(rd),M=[.213+c*.787-s*.213,.715-c*.715-s*.715,.072-c*.072+s*.928,.213-c*.213+s*.143,.715+c*.285+s*.14,.072-c*.072-s*.283,.213-c*.213-s*.787,.715-c*.715+s*.715,.072+c*.928+s*.072];
+for(let i=0;i<a.length;i+=4){let r=a[i],g=a[i+1],b=a[i+2];
+if(lut){r=lut[0][r];g=lut[1][g];b=lut[2][b]}
+if(Br||C!=1){r=(r-128)*C+128+Br;g=(g-128)*C+128+Br;b=(b-128)*C+128+Br}
+if(Tm||Tn){r+=Tm+Tn*.5;b-=Tm-Tn*.5;g-=Tn}
+if(hu){const R=r*M[0]+g*M[1]+b*M[2],Q=r*M[3]+g*M[4]+b*M[5];b=r*M[6]+g*M[7]+b*M[8];r=R;g=Q}
+if(p.sat||V){let y=.299*r+.587*g+.114*b,sa=S;if(V){const mx=Math.max(r,g,b),mn=Math.min(r,g,b);sa*=1+V*(1-(mx-mn)/255)}r=y+(r-y)*sa;g=y+(g-y)*sa;b=y+(b-y)*sa}
+if(Li){if(Li>0){r+=(255-r)*Li;g+=(255-g)*Li;b+=(255-b)*Li}else{r*=1+Li;g*=1+Li;b*=1+Li}}
+if(Z){const y=.299*r+.587*g+.114*b;r+=(y-r)*Z;g+=(y-g)*Z;b+=(y-b)*Z}
+if(thr){const y=.299*r+.587*g+.114*b,v=y>=thr?255:0;r=g=b=v}
+if(po){const q=po-1;r=Math.round(clamp(r,0,255)/255*q)*255/q;g=Math.round(clamp(g,0,255)/255*q)*255/q;b=Math.round(clamp(b,0,255)/255*q)*255/q}
+if(inv){r=255-r;g=255-g;b=255-b}
+if(G){const q=i/4,dx=(q%w)/w*2-1,dy=((q/w)|0)/h*2-1,f=1-G*Math.min(1,(dx*dx+dy*dy)/2)*1.15;r*=f;g*=f;b*=f}
+a[i]=r;a[i+1]=g;a[i+2]=b}}
+/* ---------- layer drawing ---------- */
+const hasFx=l=>{const f=l.fx;return!!f&&!!((f.sh&&f.sh.on)||(f.gl&&f.gl.on)||(f.st&&f.st.on)||(f.ov&&f.ov.on))};
+function bounds(l){if(l.t=='img')return[l.c.width,l.c.height];if(l.t=='shape')return[l.p.w,l.p.h];if(l.t=='text')return[(l.p.tw||60)+16,(l.p.th||30)+8];return[0,0]}
+function item(g,l){const p=l.p;
+if(l.t=='img')g.drawImage(l.c,-l.c.width/2,-l.c.height/2);
+else if(l.t=='shape'){g.fillStyle=p.col;g.beginPath();if(p.k=='e')g.ellipse(0,0,p.w/2,p.h/2,0,0,7);else(g.roundRect||g.rect).call(g,-p.w/2,-p.h/2,p.w,p.h,p.rd||0);g.fill()}
+else if(l.t=='text'){g.font=`${p.i?'italic ':''}${p.b?'bold ':''}${p.sz}px ${p.f}`;g.textAlign='center';g.textBaseline='middle';const ls=String(p.tx).split('\n'),lh=p.sz*1.25;p.tw=Math.max(...ls.map(s=>g.measureText(s).width));p.th=lh*ls.length;g.fillStyle=p.col;ls.forEach((s,i)=>g.fillText(s,0,(i-(ls.length-1)/2)*lh))}}
+function lcontent(g,l){g.save();
+if(l.t=='paint'){if(stroke&&stroke.l===l&&!stroke.onMask){updatePrev();g.drawImage(tP,0,0)}else{g.translate(l.x,l.y);g.drawImage(l.c,0,0)}}
+else{g.translate(l.x,l.y);g.rotate(l.r);g.scale(l.s,l.s);item(g,l)}
+g.restore()}
+function shadowOnly(g,l,col,blur,dx,dy){g.save();g.shadowColor=col;g.shadowBlur=blur;g.shadowOffsetX=dx-BIG;g.shadowOffsetY=dy;g.translate(BIG,0);lcontent(g,l);g.restore()}
+function drawL(g,l){const f=l.fx;if(!hasFx(l)){lcontent(g,l);return}
+if(f.gl&&f.gl.on)shadowOnly(g,l,rgba(f.gl.col,f.gl.o/100),f.gl.b,0,0);
+if(f.sh&&f.sh.on){const a=(f.sh.a-90)*Math.PI/180;shadowOnly(g,l,rgba(f.sh.col,f.sh.o/100),f.sh.b,Math.cos(a)*f.sh.d,Math.sin(a)*f.sh.d)}
+if(f.st&&f.st.on){const t=g2(tB);t.clearRect(0,0,W,H);lcontent(t,l);t.globalCompositeOperation='source-in';t.fillStyle=f.st.col;t.fillRect(0,0,W,H);const n=24,r=f.st.size;for(let i=0;i<n;i++){const a=i/n*Math.PI*2;g.drawImage(tB,Math.cos(a)*r,Math.sin(a)*r)}}
+if(f.ov&&f.ov.on){const t=g2(tB);t.clearRect(0,0,W,H);lcontent(t,l);t.globalCompositeOperation='source-atop';t.globalAlpha=f.ov.o/100;t.fillStyle=f.ov.col;t.fillRect(0,0,W,H);g.drawImage(tB,0,0)}else lcontent(g,l)}
+function layerImg(l){tmps();const t=clr(tA);drawL(t,l);if(l.m){t.globalCompositeOperation='destination-in';t.drawImage(l.m,0,0);t.globalCompositeOperation='source-over'}return tA}
+function maskAlpha(m){return m.getContext('2d').getImageData(0,0,W,H).data}
+function applyAdj(g,l){if(l.o<=0)return;const d=g.getImageData(0,0,W,H),src=new Uint8ClampedArray(d.data);adj(d,l);const k=l.o/100,m=l.m?maskAlpha(l.m):null,a=d.data;
+if(m||k<1)for(let i=0;i<a.length;i+=4){const f=k*(m?m[i+3]/255:1);a[i]=src[i]+(a[i]-src[i])*f;a[i+1]=src[i+1]+(a[i+1]-src[i+1])*f;a[i+2]=src[i+2]+(a[i+2]-src[i+2])*f;a[i+3]=src[i+3]}
+g.putImageData(d,0,0)}
+function compose(g,list){tmps();rst(g);g.clearRect(0,0,W,H);
+for(const l of list){if(!l.v)continue;
+if(l.t=='adj'){applyAdj(g,l);continue}
+g.save();g.globalAlpha=l.o/100;g.globalCompositeOperation=l.bm;
+if(!l.m&&!hasFx(l))lcontent(g,l);else g.drawImage(layerImg(l),0,0);
+g.restore()}}
+let rq=0;const q=()=>{if(!rq)rq=requestAnimationFrame(()=>{rq=0;draw()})};
+function draw(){if(!W)return;compose(cx,L);updateBox()}
+function updateBox(){const b=$('#bx'),s=act;
+if(s&&s.v&&['img','text','shape'].includes(s.t)&&tool=='move'){const[w0,h0]=bounds(s),w=w0*s.s,h=h0*s.s;Object.assign(b.style,{display:'block',left:s.x-w/2+'px',top:s.y-h/2+'px',width:w+'px',height:h+'px',transform:`rotate(${s.r}rad)`})}else b.style.display='none'}
+/* ---------- history ---------- */
+const snap=()=>({W,H,name:docName,L:L.map(l=>({...l,p:cp(l.p),fx:cp(l.fx)})),act:act&&act.id,selM});
+let HS=[],hi=-1;
+function commit(label){HS.length=hi+1;HS.push({label,s:snap()});if(HS.length>30)HS.shift();hi=HS.length-1;ui()}
+function restoreS(s){W=s.W;H=s.H;docName=s.name;L=s.L.map(l=>({...l,p:cp(l.p),fx:cp(l.fx)}));act=L.find(l=>l.id==s.act)||L[L.length-1]||null;selM=s.selM;editMask=false;sizeDoc();computeEdge();drawAnts();draw();ui()}
+const undo=()=>{if(hi>0){hi--;restoreS(HS[hi].s)}},redo=()=>{if(hi<HS.length-1){hi++;restoreS(HS[hi].s)}},jump=i=>{hi=i;restoreS(HS[i].s)};
+/* ---------- document & view ---------- */
+let szKey='';
+function sizeDoc(){const k=W+'x'+H;if(k!=szKey){szKey=k;cv.width=so.width=W;cv.height=so.height=H;$('#doc').style.width=W+'px';$('#doc').style.height=H+'px'}tmps()}
+let antsK=1;
+function tf(){const d=$('#doc');d.style.transform=`translate(${view.x}px,${view.y}px) scale(${view.k})`;d.style.setProperty('--bw',2/view.k+'px');d.style.setProperty('--hs',16/view.k+'px');if(edge&&Math.abs(view.k/antsK-1)>.3)drawAnts();status()}
+function fit(){if(!W)return;const r=stage.getBoundingClientRect();view.k=Math.min(r.width/W,r.height/H)*.94;view.x=(r.width-W*view.k)/2;view.y=(r.height-H*view.k)/2;tf()}
+function zoomAt(k,px,py){k=clamp(k,.05,16);view.x=px-(px-view.x)/view.k*k;view.y=py-(py-view.y)/view.k*k;view.k=k;zoomed=true;tf()}
+new ResizeObserver(()=>{if(W&&!zoomed)fit()}).observe(stage);
+const LD=()=>({id:uid++,v:1,o:100,bm:'source-over',x:0,y:0,s:1,r:0,m:null,fx:null,lk:0});
+function addL(o,at){const l={...LD(),...o};const i=L.indexOf(act);L.splice(at!=null?at:(i<0?L.length:i+1),0,l);act=l;editMask=false;return l}
+function newDoc(w,h,bg,name){W=w;H=h;L=[];HS=[];hi=-1;uid=1;nameN=1;act=null;selM=null;edge=null;szKey='';zoomed=false;docName=name||'بدون عنوان';sizeDoc();
+if(bg!='none'){const c=mk(w,h),g=c.getContext('2d');g.fillStyle=bg=='black'?'#000':'#fff';g.fillRect(0,0,w,h);addL({t:'paint',n:'الخلفية',c})}
+fit();draw();commit('مستند جديد')}
+async function loadImg(f){let b;try{b=await createImageBitmap(f)}catch(e){b=await new Promise((r,j)=>{const i=new Image();i.onload=()=>r(i);i.onerror=j;i.src=URL.createObjectURL(f)})}
+const w=b.width||b.naturalWidth,h=b.height||b.naturalHeight,k=Math.min(1,MAXD/Math.max(w,h)),c=mk(w*k,h*k);c.getContext('2d').drawImage(b,0,0,c.width,c.height);return c}
+function openImage(c,name){W=c.width;H=c.height;L=[];HS=[];hi=-1;uid=1;nameN=1;act=null;selM=null;edge=null;szKey='';zoomed=false;docName=name||'صورة';sizeDoc();addL({t:'img',n:'الخلفية',c,x:W/2,y:H/2});fit();draw();commit('فتح صورة')}
+function addImageLayer(c,name){const s=Math.min(1,W/c.width,H/c.height);addL({t:'img',n:name||'صورة',c,x:W/2,y:H/2,s});draw();commit('إضافة صورة')}
+/* ---------- rasterize / bake ---------- */
+function rasterize(l){if(l.t=='paint'||l.t=='adj')return;const c=mk(W,H);lcontent(c.getContext('2d'),l);l.t='paint';l.c=c;l.x=l.y=0;l.r=0;l.s=1;l.p=null}
+function rasterTarget(){if(!act||act.t=='adj')return null;if(act.t!='paint')rasterize(act);return act}
+function bake(l){if(l.t!='paint'||(!l.x&&!l.y))return;const c=mk(W,H);c.getContext('2d').drawImage(l.c,l.x,l.y);l.c=c;l.x=l.y=0}
+function flat(){const c=mk(W,H);compose(c.getContext('2d'),L);return c}
+const sampleAt=(x,y)=>{const c=flat(),d=c.getContext('2d').getImageData(clamp(Math.round(x),0,W-1),clamp(Math.round(y),0,H-1),1,1).data;return'#'+h2(d[0])+h2(d[1])+h2(d[2])};
+/* ---------- selection ---------- */
+function computeEdge(){edge=null;if(!selM)return;const d=selM.getContext('2d').getImageData(0,0,W,H).data,e=[];let any=false;
+for(let y=0;y<H;y++)for(let x=0;x<W;x++){const i=(y*W+x)*4+3;if(d[i]>127){any=true;if(x==0||y==0||x==W-1||y==H-1||d[i-4]<=127||d[i+4]<=127||d[i-W*4]<=127||d[i+W*4]<=127)e.push(x,y)}}
+if(!any){selM=null;return}edge=e}
+function drawAnts(){sx.setTransform(1,0,0,1,0,0);sx.clearRect(0,0,so.width,so.height);if(!edge)return;antsK=view.k;const t=Math.max(1,Math.round(1.3/view.k)),n=t*4;
+for(const col of['#000','#fff']){sx.beginPath();for(let i=0;i<edge.length;i+=2){const x=edge[i],y=edge[i+1],ph=(((x+y)/n)|0)&1;if((col=='#000')==(ph==0))sx.rect(x,y,t,t)}sx.fillStyle=col;sx.fill()}}
+function combine(m,mode){if(mode=='new'||!selM)return mode=='sub'&&!selM?null:m;const c=mk(W,H),g=c.getContext('2d');g.drawImage(selM,0,0);g.globalCompositeOperation=mode=='sub'?'destination-out':'source-over';g.drawImage(m,0,0);return c}
+function setSel(m,label){selM=m;computeEdge();drawAnts();if(label)commit(label);else ui()}
+function maskFromPath(fn){const c=mk(W,H),g=c.getContext('2d');g.fillStyle='#fff';fn(g);return c}
+function flood(d,x,y,tol,contig){const w=d.width,h=d.height,a=d.data,m=new Uint8Array(w*h),i0=(y*w+x)*4,r0=a[i0],g0=a[i0+1],b0=a[i0+2],a0=a[i0+3];
+const ok=i=>Math.abs(a[i]-r0)<=tol&&Math.abs(a[i+1]-g0)<=tol&&Math.abs(a[i+2]-b0)<=tol&&Math.abs(a[i+3]-a0)<=tol;
+if(!contig){for(let q=0;q<w*h;q++)if(ok(q*4))m[q]=1;return m}
+const st=new Int32Array(w*h);let sp=0;st[sp++]=x+y*w;m[x+y*w]=1;
+while(sp){const q=st[--sp],qx=q%w,qy=(q/w)|0;
+if(qx>0&&!m[q-1]&&ok((q-1)*4)){m[q-1]=1;st[sp++]=q-1}if(qx<w-1&&!m[q+1]&&ok((q+1)*4)){m[q+1]=1;st[sp++]=q+1}
+if(qy>0&&!m[q-w]&&ok((q-w)*4)){m[q-w]=1;st[sp++]=q-w}if(qy<h-1&&!m[q+w]&&ok((q+w)*4)){m[q+w]=1;st[sp++]=q+w}}
+return m}
+function maskCanvas(m,w,h,col){const c=mk(w,h),g=c.getContext('2d'),id=g.createImageData(w,h),[r,gg,b]=col?rgb(col):[255,255,255];for(let i=0;i<w*h;i++)if(m[i]){id.data[i*4]=r;id.data[i*4+1]=gg;id.data[i*4+2]=b;id.data[i*4+3]=255}g.putImageData(id,0,0);return c}
+function wandAt(p){const x=Math.round(p.x),y=Math.round(p.y);if(x<0||y<0||x>=W||y>=H)return;const f=flat(),d=f.getContext('2d').getImageData(0,0,W,H),m=flood(d,x,y,T.wand.tol,T.wand.contig);setSel(combine(maskCanvas(m,W,H),T.wand.mode),'العصا السحرية')}
+/* ---------- layers masks ---------- */
+function newMask(kind){const c=mk(W,H),g=c.getContext('2d');if(kind=='all'){g.fillStyle='#fff';g.fillRect(0,0,W,H)}else if(kind=='sel'&&selM)g.drawImage(selM,0,0);return c}
+function hist(c){const d=c.getContext('2d').getImageData(0,0,c.width,c.height).data,r=new Uint32Array(256),g=new Uint32Array(256),b=new Uint32Array(256),y=new Uint32Array(256);for(let i=0;i<d.length;i+=4){if(d[i+3]<8)continue;r[d[i]]++;g[d[i+1]]++;b[d[i+2]]++;y[Math.round(.299*d[i]+.587*d[i+1]+.114*d[i+2])]++}return{r,g,b,y}}
+
+/* ---------- brush engine ---------- */
+let stampC={k:''};
+function stampImg(size,hard,col){const d=Math.max(2,Math.ceil(size)),k=d+'|'+hard+'|'+col;if(stampC.k==k)return stampC.c;const c=mk(d,d),g=c.getContext('2d'),r=d/2,[R,G,B]=rgb(col),h=Math.min(.98,hard/100),gr=g.createRadialGradient(r,r,0,r,r,r);
+gr.addColorStop(0,`rgba(${R},${G},${B},1)`);gr.addColorStop(h,`rgba(${R},${G},${B},1)`);gr.addColorStop(1,`rgba(${R},${G},${B},0)`);g.fillStyle=gr;g.fillRect(0,0,d,d);stampC={k,c};return c}
+function stampOn(g,p){const s=stroke,c=stampImg(Math.max(1,s.size*(p.pr||1)),s.hard,s.onMask?'#ffffff':s.erase?'#000000':fg);g.drawImage(c,p.x-c.width/2,p.y-c.height/2)}
+function maskCtx(){const g=g2(stroke.l.m);g.globalCompositeOperation=stroke.hide?'destination-out':'source-over';g.globalAlpha=stroke.op;return g}
+function startStroke(p){const er=tool=='eraser',o=T[tool];
+if(act&&act.t=='adj'){if(!act.m)act.m=newMask('all');editMask=true}
+const onMask=!!(act&&editMask&&act.m);
+if(onMask)act.m=cl(act.m);else{if(!rasterTarget()){toast('اختر طبقة صورة أو رسم');return false}if(act.lk){toast('الطبقة مقفلة');return false}act.c=cl(act.c);tmps();clr(tS)}
+stroke={l:act,onMask,erase:er,size:o.size,hard:o.hard,op:o.op/100,rem:0,last:p,hide:onMask&&(er||lum(fg)<128)};
+const g=onMask?maskCtx():g2(tS);stampOn(g,p);draw();return true}
+function strokeTo(p){const s=stroke;if(!s)return;const dx=p.x-s.last.x,dy=p.y-s.last.y,d=Math.hypot(dx,dy);if(!d)return;const sp=Math.max(.8,s.size*.1),g=s.onMask?maskCtx():g2(tS);let pos=sp-s.rem;
+while(pos<=d){stampOn(g,{x:s.last.x+dx*pos/d,y:s.last.y+dy*pos/d,pr:p.pr});pos+=sp}s.rem=d-(pos-sp);s.last=p;q()}
+function applyStroke(g,ox,oy){const s=stroke;let src=tS;if(selM){const c=g2(tC);c.clearRect(0,0,W,H);c.drawImage(tS,0,0);c.globalCompositeOperation='destination-in';c.drawImage(selM,0,0);src=tC}
+g.save();g.globalAlpha=s.op;g.globalCompositeOperation=s.erase?'destination-out':'source-over';g.drawImage(src,ox,oy);g.restore()}
+function updatePrev(){const l=stroke.l,g=clr(tP);g.drawImage(l.c,l.x,l.y);applyStroke(g,0,0)}
+function endStroke(){const s=stroke;if(!s)return;if(!s.onMask)applyStroke(g2(s.l.c),-s.l.x,-s.l.y);stroke=null;draw();commit(s.onMask?'رسم على القناع':s.erase?'ممحاة':'فرشاة')}
+/* ---------- raster helpers ---------- */
+function paintThroughSel(fn,label){const l=rasterTarget();if(!l){toast('اختر طبقة صورة أو رسم');return}if(l.lk){toast('الطبقة مقفلة');return}
+l.c=cl(l.c);tmps();const g=clr(tC);fn(g);if(selM){g.globalCompositeOperation='destination-in';g.drawImage(selM,0,0)}l.c.getContext('2d').drawImage(tC,-l.x,-l.y);draw();commit(label)}
+function fillSel(col){paintThroughSel(g=>{g.fillStyle=col;g.fillRect(0,0,W,H)},'تعبئة')}
+function clearSel(){const l=rasterTarget();if(!l){toast('اختر طبقة صورة أو رسم');return}l.c=cl(l.c);const g=l.c.getContext('2d');if(selM){g.globalCompositeOperation='destination-out';g.drawImage(selM,-l.x,-l.y)}else g.clearRect(0,0,l.c.width,l.c.height);draw();commit('مسح')}
+function bucketAt(p){const l=rasterTarget();if(!l){toast('اختر طبقة صورة أو رسم');return}const lx=Math.round(p.x-l.x),ly=Math.round(p.y-l.y);if(lx<0||ly<0||lx>=l.c.width||ly>=l.c.height)return;
+const d=l.c.getContext('2d').getImageData(0,0,l.c.width,l.c.height),m=flood(d,lx,ly,T.bucket.tol,true),mc=maskCanvas(m,l.c.width,l.c.height,fg);
+l.c=cl(l.c);const g=g2(tC);g.clearRect(0,0,W,H);g.drawImage(mc,0,0);if(selM){g.globalCompositeOperation='destination-in';g.drawImage(selM,-l.x,-l.y)}l.c.getContext('2d').drawImage(tC,0,0);draw();commit('سطل الطلاء')}
+function gradientFill(a,b){if(Math.hypot(b.x-a.x,b.y-a.y)<3)return;const[c1,c2]=T.grad.rev?[bgc,fg]:[fg,bgc];
+paintThroughSel(g=>{const gr=T.grad.type=='rad'?g.createRadialGradient(a.x,a.y,0,a.x,a.y,Math.hypot(b.x-a.x,b.y-a.y)):g.createLinearGradient(a.x,a.y,b.x,b.y);gr.addColorStop(0,c1);gr.addColorStop(1,c2);g.fillStyle=gr;g.fillRect(0,0,W,H)},'تدرج')}
+/* ---------- overlay preview ---------- */
+function ovClear(){sx.setTransform(1,0,0,1,0,0);sx.clearRect(0,0,so.width,so.height)}
+function ovShape(fn){ovClear();const k=1/view.k;sx.lineWidth=1.5*k;for(const[c,off]of[['#000',0],['#fff',4*k]]){sx.strokeStyle=c;sx.setLineDash([4*k,4*k]);sx.lineDashOffset=-off;sx.beginPath();fn(sx);sx.stroke()}sx.setLineDash([])}
+/* ---------- hit test ---------- */
+function hitL(l,x,y){if(!l.v||l.t=='adj')return false;
+if(l.t=='paint'){const px=Math.round(x-l.x),py=Math.round(y-l.y);if(px<0||py<0||px>=l.c.width||py>=l.c.height)return false;return l.c.getContext('2d').getImageData(px,py,1,1).data[3]>8}
+const dx=x-l.x,dy=y-l.y,c=Math.cos(-l.r),s=Math.sin(-l.r),u=(dx*c-dy*s)/l.s,v=(dx*s+dy*c)/l.s,[w,h]=bounds(l);return Math.abs(u)<=w/2&&Math.abs(v)<=h/2}
+/* ---------- crop ---------- */
+let cr=null,cH=null;
+const crEl=$('#cr');
+function ratioVal(){const r=T.crop.ratio;if(r=='free')return 0;if(r=='orig')return W/H;const[a,b]=r.split(':').map(Number);return a/b}
+function crFit(){const r=ratioVal();if(!r){cr={x:0,y:0,w:W,h:H};return}let w=Math.min(W,H*r),h=w/r;cr={x:(W-w)/2,y:(H-h)/2,w,h}}
+function crShow(){if(tool!='crop'||!cr){crEl.style.display='none';return}Object.assign(crEl.style,{display:'block',left:cr.x+'px',top:cr.y+'px',width:cr.w+'px',height:cr.h+'px'})}
+function crDown(p){const th=28/view.k,hs={nw:[cr.x,cr.y],n:[cr.x+cr.w/2,cr.y],ne:[cr.x+cr.w,cr.y],e:[cr.x+cr.w,cr.y+cr.h/2],se:[cr.x+cr.w,cr.y+cr.h],s:[cr.x+cr.w/2,cr.y+cr.h],sw:[cr.x,cr.y+cr.h],w:[cr.x,cr.y+cr.h/2]};let best=null,bd=th;
+for(const k in hs){const d=Math.hypot(p.x-hs[k][0],p.y-hs[k][1]);if(d<bd){bd=d;best=k}}
+if(best)cH=best;else if(p.x>cr.x&&p.x<cr.x+cr.w&&p.y>cr.y&&p.y<cr.y+cr.h)cH='move';else cH=null}
+function crMove(p,dx,dy){if(!cH)return;let{x,y,w,h}=cr;const r=ratioVal(),MIN=24;
+if(cH=='move'){x=clamp(x+dx,0,W-w);y=clamp(y+dy,0,H-h);cr={x,y,w,h};crShow();return}
+let x2=x+w,y2=y+h;if(cH.includes('w'))x=clamp(p.x,0,x2-MIN);if(cH.includes('e'))x2=clamp(p.x,x+MIN,W);if(cH.includes('n'))y=clamp(p.y,0,y2-MIN);if(cH.includes('s'))y2=clamp(p.y,y+MIN,H);
+w=x2-x;h=y2-y;
+if(r){if(cH=='n'||cH=='s'){const nw=h*r,cxm=cr.x+cr.w/2;x=cxm-nw/2;w=nw}else if(cH=='e'||cH=='w'){const nh=w/r,cym=cr.y+cr.h/2;y=cym-nh/2;h=nh}else{const nh=w/r;if(cH.includes('n'))y=y2-nh;h=nh}
+if(x<0||y<0||x+w>W||y+h>H)return}
+cr={x,y,w,h};crShow()}
+function applyCrop(){if(!cr)return;const ox=Math.round(cr.x),oy=Math.round(cr.y),nw=Math.round(cr.w),nh=Math.round(cr.h);cropDoc(ox,oy,nw,nh);cr=null;setTool('move');commit('قص')}
+function cropDoc(ox,oy,nw,nh){for(const l of L){bake(l);if(l.t=='paint'){const n=mk(nw,nh);n.getContext('2d').drawImage(l.c,-ox,-oy);l.c=n}else{l.x-=ox;l.y-=oy}if(l.m){const n=mk(nw,nh);n.getContext('2d').drawImage(l.m,-ox,-oy);l.m=n}}
+if(selM){const n=mk(nw,nh);n.getContext('2d').drawImage(selM,-ox,-oy);selM=n}
+W=nw;H=nh;zoomed=false;sizeDoc();computeEdge();drawAnts();fit();draw()}
+/* ---------- document transforms ---------- */
+function mapCanvases(fn){for(const l of L){if(l.t=='paint')l.c=fn(l.c);if(l.m)l.m=fn(l.m)}if(selM)selM=fn(selM)}
+function rot90(cw){const w=W,h=H;for(const l of L)bake(l);
+const rc=c=>{const n=mk(c.height,c.width),g=n.getContext('2d');if(cw){g.translate(c.height,0);g.rotate(Math.PI/2)}else{g.translate(0,c.width);g.rotate(-Math.PI/2)}g.drawImage(c,0,0);return n};
+for(const l of L){if(l.t!='paint'){const x=l.x,y=l.y;if(cw){l.x=h-y;l.y=x;l.r+=Math.PI/2}else{l.x=y;l.y=w-x;l.r-=Math.PI/2}}}
+mapCanvases(rc);W=h;H=w;zoomed=false;sizeDoc();computeEdge();drawAnts();fit();draw();commit(cw?'تدوير 90° يمين':'تدوير 90° يسار')}
+function flipDoc(hz){for(const l of L)bake(l);
+const fc=c=>{const n=mk(c.width,c.height),g=n.getContext('2d');if(hz){g.translate(c.width,0);g.scale(-1,1)}else{g.translate(0,c.height);g.scale(1,-1)}g.drawImage(c,0,0);return n};
+for(const l of L){if(l.t=='paint')continue;if(hz)l.x=W-l.x;else l.y=H-l.y;l.r=-l.r;if(l.t=='img'){const n=mk(l.c.width,l.c.height),g=n.getContext('2d');if(hz){g.translate(n.width,0);g.scale(-1,1)}else{g.translate(0,n.height);g.scale(1,-1)}g.drawImage(l.c,0,0);l.c=n}}
+mapCanvases(fc);computeEdge();drawAnts();draw();commit(hz?'قلب أفقي':'قلب عمودي')}
+function resizeDoc(nw,nh){const f=nw/W,fy=nh/H;for(const l of L)bake(l);
+const rs=c=>{const n=mk(nw,nh);n.getContext('2d').drawImage(c,0,0,nw,nh);return n};
+for(const l of L){if(l.t!='paint'){l.x*=f;l.y*=fy;l.s*=f}if(l.fx)for(const k in l.fx){const e=l.fx[k];for(const a of['d','b','size'])if(e[a]!=null)e[a]*=f}}
+mapCanvases(rs);W=nw;H=nh;zoomed=false;sizeDoc();computeEdge();drawAnts();fit();draw();commit('حجم الصورة')}
+function flatten(){if(!W)return;const c=flat();L=[];act=null;addL({t:'paint',n:'الخلفية',c});draw();commit('تسطيح الصورة')}
+function mergeDown(){const i=L.indexOf(act);if(i<1){toast('لا توجد طبقة أسفل');return}const a=L[i-1],b=L[i];if(a.t=='adj'){toast('لا يمكن الدمج مع طبقة ضبط');return}
+const c=mk(W,H);compose(c.getContext('2d'),[a,b]);const n={...LD(),t:'paint',n:a.n,c,id:uid++};L.splice(i-1,2,n);act=n;draw();commit('دمج لأسفل')}
+function selToLayer(){if(!selM){toast('لا يوجد تحديد');return}const src=act&&act.t!='adj'?act:null,c=mk(W,H),g=c.getContext('2d');if(src)lcontent(g,src);else g.drawImage(flat(),0,0);g.globalCompositeOperation='destination-in';g.drawImage(selM,0,0);addL({t:'paint',n:'نسخة من التحديد',c});draw();commit('طبقة من التحديد')}
+/* ---------- pointer handling ---------- */
+const P=new Map();let G=null,mode=null,last,lastS,moved=false,dragA=null,selPts=null;
+const spt=e=>{const r=stage.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}};
+const dpt=e=>{const p=spt(e);return{x:(p.x-view.x)/view.k,y:(p.y-view.y)/view.k,pr:e.pointerType=='pen'&&e.pressure?e.pressure*1.4+.2:1}};
+function pinch(){const[a,b]=[...P.values()].map(spt),d=Math.hypot(a.x-b.x,a.y-b.y),m={x:(a.x+b.x)/2,y:(a.y+b.y)/2};
+if(!G)G={d,k:view.k,dx:(m.x-view.x)/view.k,dy:(m.y-view.y)/view.k};zoomed=true;view.k=clamp(G.k*d/G.d,.05,16);view.x=m.x-G.dx*view.k;view.y=m.y-G.dy*view.k;tf()}
+function down(p,e){last=p;lastS=spt(e);moved=false;mode=null;dragA=p;
+switch(tool){
+case'hand':mode='pan';break;
+case'zoom':mode='tap';break;
+case'move':if(T.move.auto){const h=[...L].reverse().find(l=>!l.lk&&hitL(l,p.x,p.y));if(h&&h!==act){act=h;editMask=false;ui();updateBox()}}mode=act&&!act.lk&&act.t!='adj'?'move':'pan';break;
+case'brush':case'eraser':if(startStroke(p))mode='stroke';break;
+case'mq':case'lasso':mode=tool;selPts=[p];break;
+case'wand':case'bucket':case'text':mode='tap';break;
+case'eye':mode='eye';pick(p);break;
+case'grad':mode='grad';break;
+case'shape':mode='shape';break;
+case'crop':if(cr){crDown(p);mode='crop'}break}}
+function pick(p){const c=sampleAt(p.x,p.y);if(T.eye.bg)bgc=c;else fg=c;swatches()}
+function mv(p,e){const s=spt(e);if(Math.hypot(s.x-lastS.x,s.y-lastS.y)>6)moved=true;
+switch(mode){
+case'pan':view.x+=s.x-lastS.x;view.y+=s.y-lastS.y;lastS=s;zoomed=true;tf();break;
+case'move':{if(!moved&&Math.hypot(p.x-dragA.x,p.y-dragA.y)*view.k<6)break;moved=true;act.x+=p.x-last.x;act.y+=p.y-last.y;last=p;q()}break;
+case'stroke':{const cs=e.getCoalescedEvents&&e.getCoalescedEvents();for(const c of cs&&cs.length?cs:[e])strokeTo(dpt(c))}break;
+case'mq':{const a=dragA;ovShape(g=>{if(T.mq.shape=='e')g.ellipse((a.x+p.x)/2,(a.y+p.y)/2,Math.abs(p.x-a.x)/2,Math.abs(p.y-a.y)/2,0,0,7);else g.rect(Math.min(a.x,p.x),Math.min(a.y,p.y),Math.abs(p.x-a.x),Math.abs(p.y-a.y))})}break;
+case'lasso':selPts.push(p);ovShape(g=>{g.moveTo(selPts[0].x,selPts[0].y);for(const q of selPts)g.lineTo(q.x,q.y)});break;
+case'eye':pick(p);break;
+case'grad':ovShape(g=>{g.moveTo(dragA.x,dragA.y);g.lineTo(p.x,p.y)});break;
+case'shape':{const a=dragA;ovShape(g=>{if(T.shape.kind=='e')g.ellipse((a.x+p.x)/2,(a.y+p.y)/2,Math.abs(p.x-a.x)/2,Math.abs(p.y-a.y)/2,0,0,7);else g.rect(Math.min(a.x,p.x),Math.min(a.y,p.y),Math.abs(p.x-a.x),Math.abs(p.y-a.y))})}break;
+case'crop':crMove(p,p.x-last.x,p.y-last.y);last=p;break}}
+function up(p,e){const m=mode;mode=null;
+switch(m){
+case'move':if(moved){draw();commit('تحريك')}break;
+case'stroke':endStroke();break;
+case'mq':{const a=dragA;if(Math.hypot(p.x-a.x,p.y-a.y)<3){ovClear();if(selM)setSel(null,'إلغاء التحديد');drawAnts();break}
+const m2=maskFromPath(g=>{g.beginPath();if(T.mq.shape=='e')g.ellipse((a.x+p.x)/2,(a.y+p.y)/2,Math.abs(p.x-a.x)/2,Math.abs(p.y-a.y)/2,0,0,7);else g.rect(Math.min(a.x,p.x),Math.min(a.y,p.y),Math.abs(p.x-a.x),Math.abs(p.y-a.y));g.fill()});
+const r=combine(m2,T.mq.mode);setSel(r,'تحديد');break}
+case'lasso':{if(selPts.length<3){ovClear();drawAnts();break}const m2=maskFromPath(g=>{g.beginPath();g.moveTo(selPts[0].x,selPts[0].y);for(const q of selPts)g.lineTo(q.x,q.y);g.closePath();g.fill()});setSel(combine(m2,T.lasso.mode),'تحديد حر');break}
+case'grad':ovClear();drawAnts();gradientFill(dragA,p);break;
+case'shape':{ovClear();drawAnts();let a=dragA,w=Math.abs(p.x-a.x),h=Math.abs(p.y-a.y),cxm=(a.x+p.x)/2,cym=(a.y+p.y)/2;if(w<6&&h<6){w=h=Math.round(Math.min(W,H)*.3);cxm=a.x;cym=a.y}
+addL({t:'shape',n:T.shape.kind=='e'?'شكل بيضاوي':'شكل',x:cxm,y:cym,p:{k:T.shape.kind=='e'?'e':'r',w:Math.round(w),h:Math.round(h),rd:T.shape.kind=='rr'?Math.round(Math.min(w,h)*.2):0,col:fg}});draw();commit('شكل');break}
+case'eye':break;
+case'tap':if(!moved)tap(p,e);break;
+case'crop':cH=null;break}}
+function tap(p,e){
+if(tool=='wand')wandAt(p);
+else if(tool=='bucket')bucketAt(p);
+else if(tool=='zoom'){const s=spt(e);zoomAt(view.k*(T.zoom.out?.5:2),s.x,s.y)}
+else if(tool=='text'){const h=[...L].reverse().find(l=>l.t=='text'&&hitL(l,p.x,p.y));if(h){act=h;editMask=false;dTab='props';dockOpen=true;ui();updateBox()}else{addL({t:'text',n:'نص',x:p.x,y:p.y,p:{tx:'اكتب هنا',sz:T.text.sz,col:fg,f:FONTS[0][0],b:T.text.b,i:0}});dTab='props';dockOpen=true;draw();commit('نص')}}}
+stage.onpointerdown=e=>{if(!W)return;stage.setPointerCapture(e.pointerId);P.set(e.pointerId,e);if(P.size>1){if(mode=='stroke')endStroke();else if(mode=='mq'||mode=='lasso'||mode=='grad'||mode=='shape'){ovClear();drawAnts()}mode=null;G=null;pinch();return}down(dpt(e),e)};
+stage.onpointermove=e=>{if(!P.has(e.pointerId))return;P.set(e.pointerId,e);if(P.size>1){pinch();return}if(mode)mv(dpt(e),e)};
+stage.onpointerup=stage.onpointercancel=e=>{if(P.size==1&&mode)up(dpt(e),e);P.delete(e.pointerId);G=null;if(!P.size)mode=null};
+stage.onwheel=e=>{if(!W)return;e.preventDefault();const s=spt(e);zoomAt(view.k*(e.deltaY<0?1.12:.89),s.x,s.y)};
+
+/* ---------- AI assistant ---------- */
+let aiLog=[],aiDraft='',aiBusy=false,aiCfg={prov:'anthropic',key:'',model:'claude-sonnet-5-5',base:'https://api.openai.com/v1',vision:1};
+try{Object.assign(aiCfg,JSON.parse(localStorage.getItem('pc_ai')||'{}'))}catch(e){}
+const aiSave=()=>{try{localStorage.setItem('pc_ai',JSON.stringify(aiCfg))}catch(e){}};
+const AI_SYS=`You are the editing engine of a mobile photo editor (Photoshop-like). Convert the user's request into editing actions. Reply with ONLY a JSON object, no prose, no code fences:
+{"say":"short reply in the user's language","actions":[...]}
+All x,y,w,h are fractions (0-1) of image width/height. Colors are #rrggbb. Allowed actions:
+{"do":"adjust","kind":K,"params":{...}} K and params: bc{br,ct -100..100} lv{ib 0..253,ig 10..999 (100=1.0),iw 2..255,ob,ow} vi{vib,sat -100..100} hs{hue -180..180,sat,lig -100..100} bw{bw 0..100} wb{tmp,tint -100..100} inv{} th{thr 1..255} po{post 2..32} vg{vig 0..100} bl{blur 0..40} sh{sharp 0..100} no{noise 0..100} px{pix 2..80}
+{"do":"preset","name":"نابض|دافئ|بارد|أحادي|باهت|دراما|سينمائي|قديم"}
+{"do":"select","what":"all|none|invert|rect|ellipse","x":0,"y":0,"w":1,"h":1}  (a selection makes the NEXT adjust apply only inside it)
+{"do":"crop","ratio":"1:1|4:5|3:4|16:9|9:16"}  {"do":"rotate","dir":"cw|ccw"}  {"do":"flip","axis":"h|v"}  {"do":"resize","width":1080}
+{"do":"text","text":"...","size":120,"color":"#ffffff","x":0.5,"y":0.5}
+{"do":"shape","kind":"r|rr|e","x":0.5,"y":0.5,"w":0.3,"h":0.2,"color":"#2f7bf5"}
+{"do":"fx","type":"sh|st|gl|ov","params":{}} on the active layer (sh drop shadow{d,a,b,o,col} st stroke{size,col} gl glow{b,o,col} ov overlay{col,o})
+{"do":"fill","color":"#rrggbb"}  {"do":"color","color":"#rrggbb"}  {"do":"opacity","value":0-100}  {"do":"layer","op":"new|dup|del|merge|flatten"}  {"do":"mask","op":"sel|all|inv|del"}  {"do":"undo"}  {"do":"export","fmt":"png|jpg"}
+Use at most 12 actions. Prefer adjustment layers (non-destructive). If the request is unclear or impossible, return an empty actions array and explain in "say".`;
+function aiNorm(s){return s.toLowerCase().replace(/[\u064B-\u0652\u0640]/g,'').replace(/[أإآ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه')}
+function aiLocal(raw){const t=aiNorm(raw),A=[],num=(d)=>{const m=/(\d{1,3})\s*%?/.exec(raw.replace(/\d+\s*[:x×]\s*\d+/g,''));return m?clamp(+m[1],1,100):d};
+const add=(re,fn)=>{const m=re.exec(t);if(m)A.push({i:m.index,a:fn(m)})};
+const less=/(قلل|اقلل|انقص|less|reduce|decrease|lower)/.test(t);
+add(/(ابيض و?اسود|رمادي|black.?and.?white|grayscale|b&w|mono)/,()=>({do:'adjust',kind:'bw',params:{bw:100}}));
+add(/(اغمق|اظلم|darker|darken|قلل السطوع|اقلل السطوع)/,()=>({do:'adjust',kind:'bc',params:{br:-num(25)}}));
+add(/(اضئ|افتح|ابهت|brighter|brighten|lighter|زد السطوع|زياده السطوع|اسطع)/,()=>({do:'adjust',kind:'bc',params:{br:num(25)}}));
+add(/(تباين|contrast)/,()=>({do:'adjust',kind:'bc',params:{ct:(less?-1:1)*num(30)}}));
+add(/(تشبع|زاهي|حيوي|vibrant|saturat|vivid|الوان اقوي)/,()=>({do:'adjust',kind:'vi',params:less?{sat:-40}:{vib:35,sat:20}}));
+add(/(دافي|warm|دفء)/,()=>({do:'adjust',kind:'wb',params:{tmp:40}}));
+add(/(بارد|cool|cold|برود)/,()=>({do:'adjust',kind:'wb',params:{tmp:-40}}));
+add(/(تمويه|ضبابي|blur)/,()=>({do:'adjust',kind:'bl',params:{blur:Math.round(num(12)/3)+2}}));
+add(/(حده|شحذ|sharpen|sharp|اوضح)/,()=>({do:'adjust',kind:'sh',params:{sharp:70}}));
+add(/(عكس الالوان|invert|negative|نيجاتيف)/,()=>({do:'adjust',kind:'inv',params:{}}));
+add(/(تظليل|vignette|حواف مظلمه)/,()=>({do:'adjust',kind:'vg',params:{vig:55}}));
+for(const n of Object.keys(PR)){const i=t.indexOf(aiNorm(n));if(i>=0&&/(فلتر|filter|تاثير|نمط)/.test(t))A.push({i,a:{do:'preset',name:n}})}
+let m;if(m=/(?:قص|اقتص|crop).*?(\d+)\s*[:x×]\s*(\d+)/.exec(t))A.push({i:m.index,a:{do:'crop',ratio:m[1]+':'+m[2]}});else if(m=/(?:قص|اقتص|crop).*(مربع|square)/.exec(t))A.push({i:m.index,a:{do:'crop',ratio:'1:1'}});
+if(m=/(دور|ادر|rotate)/.exec(t))A.push({i:m.index,a:{do:'rotate',dir:/(يسار|left|counter)/.test(t)?'ccw':'cw'}});
+if(m=/(اقلب|flip|mirror|مرايه)/.exec(t))A.push({i:m.index,a:{do:'flip',axis:/(عمودي|vertical)/.test(t)?'v':'h'}});
+const q=/["“«']([^"”»']+)["”»']/.exec(raw);if(q&&/(نص|اكتب|text|write|عنوان|كلمه)/.test(t))A.push({i:t.search(/(نص|اكتب|text|write|عنوان|كلمه)/),a:{do:'text',text:q[1],size:Math.round(W/9),color:'#ffffff',x:.5,y:.85}});
+if(m=/(تراجع|undo)/.exec(t))A.push({i:m.index,a:{do:'undo'}});
+if(m=/(صدر|احفظ|export|save)/.exec(t))A.push({i:m.index,a:{do:'export',fmt:/jpg|jpeg/.test(t)?'jpg':'png'}});
+if(m=/(الغ.*تحديد|deselect)/.exec(t))A.push({i:m.index,a:{do:'select',what:'none'}});
+A.sort((a,b)=>a.i-b.i);const actions=A.map(x=>x.a);
+return{say:actions.length?'تم تنفيذ الأمر.':'لم أفهم الأمر. جرّب: «اجعلها أبيض وأسود وقص 1:1» أو أضف مفتاح API من ⚙ لتفعيل المساعد الذكي الكامل.',actions}}
+const aiClampP=(kind,params)=>{const spec=ADJ[kind].sl,o={};for(const[k,v]of Object.entries(params||{})){const s=spec.find(x=>x[0]==k);if(s&&typeof v=='number')o[k]=clamp(Math.round(v),s[2],s[3])}return o};
+function aiExec(acts){const done=[];for(const a of (acts||[]).slice(0,20)){try{switch(a.do){
+case'adjust':if(!ADJ[a.kind]||a.kind=='pre'||a.kind=='cu')throw 0;addAdj(a.kind,null,aiClampP(a.kind,a.params));break;
+case'preset':if(!PR[a.name])throw 0;addAdj('pre',a.name);break;
+case'select':{const w=a.what;if(w=='all')runAct('selall');else if(w=='none')runAct('desel');else if(w=='invert')runAct('selinv');else{const x=W*(a.x||0),y=H*(a.y||0),ww=W*(a.w||1),hh=H*(a.h||1);setSel(maskFromPath(g=>{g.beginPath();if(w=='ellipse')g.ellipse(x+ww/2,y+hh/2,ww/2,hh/2,0,0,7);else g.rect(x,y,ww,hh);g.fill()}),'تحديد (مساعد)')}break}
+case'crop':T.crop.ratio=a.ratio;crFit();applyCrop();break;
+case'rotate':rot90(a.dir!='ccw');break;case'flip':flipDoc(a.axis!='v');break;
+case'resize':{const w=clamp(Math.round(a.width),16,MAXD);resizeDoc(w,Math.max(16,Math.round(w*H/W)));break}
+case'text':addL({t:'text',n:'نص',x:W*(a.x??.5),y:H*(a.y??.5),p:{tx:String(a.text||''),sz:clamp(+a.size||Math.round(W/9),8,600),col:a.color||'#ffffff',f:FONTS[0][0],b:1,i:0}});draw();commit('نص (مساعد)');break;
+case'shape':{const k=a.kind=='e'?'e':'r',w=W*(a.w||.3),h=H*(a.h||.2);addL({t:'shape',n:'شكل',x:W*(a.x??.5),y:H*(a.y??.5),p:{k,w:Math.round(w),h:Math.round(h),rd:a.kind=='rr'?Math.round(Math.min(w,h)*.2):0,col:a.color||fg}});draw();commit('شكل (مساعد)');break}
+case'fx':{if(!act||act.t=='adj'||!FXD[a.type])throw 0;act.fx=act.fx||{};act.fx[a.type]={...cp(FXD[a.type]),...(a.params||{}),on:1};draw();commit('نمط الطبقة (مساعد)');break}
+case'fill':fillSel(a.color||fg);break;case'color':fg=a.color;swatches();break;
+case'opacity':if(!act)throw 0;act.o=clamp(+a.value,0,100);draw();commit('الشفافية (مساعد)');break;
+case'layer':runAct({new:'newl',dup:'dup',del:'del',merge:'merge',flatten:'flatten'}[a.op]);break;
+case'mask':maskOp(a.op);break;case'undo':undo();break;case'export':exportImg(a.fmt||'png');break;default:throw 0}
+done.push(a.do)}catch(e){done.push('✗'+a.do)}}return done}
+const netPending={};window.__httpDone=(id,code,text)=>{const r=netPending[id];if(r){delete netPending[id];r({status:code,text})}};
+function netPost(url,headers,body){if(window.AndroidBridge&&AndroidBridge.http){return new Promise(res=>{const id='h'+Date.now()+Math.random();netPending[id]=res;AndroidBridge.http(id,url,JSON.stringify(headers),body)})}
+return fetch(url,{method:'POST',headers,body}).then(async r=>({status:r.status,text:await r.text()}))}
+function aiThumb(){const f=flat(),k=Math.min(1,768/Math.max(W,H)),c=mk(W*k,H*k),g=c.getContext('2d');g.fillStyle='#fff';g.fillRect(0,0,c.width,c.height);g.drawImage(f,0,0,c.width,c.height);return c.toDataURL('image/jpeg',.72)}
+async function aiAsk(text){const ctxT=`Image ${W}x${H}px. Layers (top to bottom): ${[...L].reverse().map(l=>l.n+'('+(l.t=='adj'?ADJ[l.kind].n:l.t)+')').join(', ')||'none'}. Active layer: ${act?act.n:'none'}. Selection: ${selM?'yes':'no'}.\nRequest: ${text}`,img=aiCfg.vision&&W?aiThumb():null;let r,out;
+if(aiCfg.prov=='anthropic'){const content=[];if(img)content.push({type:'image',source:{type:'base64',media_type:'image/jpeg',data:img.split(',')[1]}});content.push({type:'text',text:ctxT});
+r=await netPost('https://api.anthropic.com/v1/messages',{'content-type':'application/json','x-api-key':aiCfg.key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},JSON.stringify({model:aiCfg.model,max_tokens:1500,system:AI_SYS,messages:[{role:'user',content}]}));
+if(r.status>=300)throw new Error('API '+r.status+': '+r.text.slice(0,160));out=(JSON.parse(r.text).content||[]).map(c=>c.text||'').join('')}
+else{const content=[{type:'text',text:ctxT}];if(img)content.push({type:'image_url',image_url:{url:img}});
+r=await netPost(aiCfg.base.replace(/\/$/,'')+'/chat/completions',{'content-type':'application/json','Authorization':'Bearer '+aiCfg.key},JSON.stringify({model:aiCfg.model,messages:[{role:'system',content:AI_SYS},{role:'user',content}]}));
+if(r.status>=300)throw new Error('API '+r.status+': '+r.text.slice(0,160));out=JSON.parse(r.text).choices[0].message.content}
+const m=/\{[\s\S]*\}/.exec(out);if(!m)throw new Error('رد غير مفهوم');return JSON.parse(m[0])}
+async function aiRun(text){text=text.trim();if(!text||aiBusy)return;if(!W){aiLog.push({r:'a',t:'افتح صورة أولاً.'});ui();return}
+aiLog.push({r:'u',t:text});aiDraft='';aiBusy=true;ui();let res;
+try{res=aiCfg.key?await aiAsk(text):aiLocal(text)}catch(e){aiLog.push({r:'a',t:'تعذر الاتصال بالمساعد: '+e.message+(aiCfg.key?'':'')});aiBusy=false;ui();return}
+const done=aiExec(res.actions);aiBusy=false;aiLog.push({r:'a',t:(res.say||'')+(done.length?'\n'+done.map(d=>d.startsWith('✗')?'✗ تعذر: '+d.slice(1):'✓ '+d).join('، '):'')});ui()}
+function aiHTML(){const ex=['اجعلها أبيض وأسود','زد التباين والتشبع','فلتر سينمائي','قص 1:1','أضف نص "مرحباً"'];
+return`<div class="ai"><div class="ailog" id="ailog">${aiLog.length?aiLog.map(m=>`<div class="m ${m.r}">${esc(m.t).replace(/\n/g,'<br>')}</div>`).join(''):`<div class="m a">اكتب ما تريد تعديله في الصورة وسأنفّذه. ${aiCfg.key?'(المساعد الذكي مفعّل)':'(وضع محلي: أوامر بسيطة. أضف مفتاح API من ⚙ للفهم الكامل)'}</div>`}${aiBusy?'<div class="m a">جارٍ التنفيذ…</div>':''}</div>
+<div class="aich">${ex.map(e=>chip('aiex',e,e)).join('')}${chip('aiset','','⚙ إعدادات')}</div>
+<div class="aiin"><textarea id="aiq" rows="1" placeholder="مثال: اجعل السماء أغمق وأضف ظلاً…">${esc(aiDraft)}</textarea><button class="pb" data-a="aisend">إرسال</button></div></div>`}
+function aiDialog(){dialog('إعدادات المساعد الذكي',`<div class="fr"><span>المزوّد</span><select id="ap"><option value="anthropic"${aiCfg.prov=='anthropic'?' selected':''}>Anthropic (Claude)</option><option value="openai"${aiCfg.prov=='openai'?' selected':''}>متوافق مع OpenAI</option></select></div><div class="fr"><span>مفتاح API</span><input type="text" id="ak" dir="ltr" style="flex:1" value="${esc(aiCfg.key)}" placeholder="sk-..."></div><div class="fr"><span>النموذج</span><input type="text" id="am" dir="ltr" style="flex:1" value="${esc(aiCfg.model)}"></div><div class="fr" id="abr"><span>الرابط</span><input type="text" id="ab" dir="ltr" style="flex:1" value="${esc(aiCfg.base)}"></div><div class="fr"><span>إرسال الصورة</span><input type="checkbox" id="av"${aiCfg.vision?' checked':''}></div><p style="color:var(--mu);font-size:12px;margin:6px 0 0;line-height:1.6">يُخزَّن المفتاح على جهازك فقط ويُرسل إلى المزوّد الذي تختاره. عند تفعيل «إرسال الصورة» تُرسل نسخة مصغّرة من الصورة ليفهمها النموذج. اترك المفتاح فارغاً للوضع المحلي.</p>`,[['إلغاء'],['حفظ',()=>{aiCfg={prov:$('#ap').value,key:$('#ak').value.trim(),model:$('#am').value.trim(),base:$('#ab').value.trim(),vision:$('#av').checked?1:0};aiSave();ui()},1]]);
+const sync=()=>{$('#abr').style.display=$('#ap').value=='openai'?'flex':'none'};$('#ap').onchange=()=>{if($('#ap').value=='openai'&&/claude/.test($('#am').value))$('#am').value='gpt-4o-mini';if($('#ap').value=='anthropic'&&!/claude/.test($('#am').value))$('#am').value='claude-sonnet-5-5';sync()};sync()}
+document.addEventListener('input',e=>{if(e.target.id=='aiq')aiDraft=e.target.value});
+document.addEventListener('keydown',e=>{if(e.target.id=='aiq'&&e.key=='Enter'&&!e.shiftKey){e.preventDefault();aiRun(e.target.value)}});
+
+/* ---------- icons ---------- */
+const IC={move:'<path d="M12 3v18M3 12h18M12 3l-3 3M12 3l3 3M12 21l-3-3M12 21l3-3M3 12l3-3M3 12l3 3M21 12l-3-3M21 12l-3 3"/>',
+mq:'<rect x="4" y="5" width="16" height="14" stroke-dasharray="3 2.4"/>',
+lasso:'<path d="M12 4C7.5 4 4 5.8 4 8.2s3.5 4.2 8 4.2 8-1.8 8-4.2S16.5 4 12 4z"/><path d="M9 12.3c-.5 2.5-.2 4.5 2 6.2 1.4 1 .5 2.3-.8 2.5"/>',
+wand:'<path d="M4 20L15 9"/><path d="M15 9l-1.5-1.5L16 5l3 3-2.5 2.5"/><path d="M8 4v3M6.5 5.5h3M19 14v3M17.5 15.5h3"/>',
+crop:'<path d="M7 3v14h14M3 7h14v14"/>',
+eye:'<path d="M4 20l1-4 9.5-9.5 3 3L8 19z"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L18 8l-3-3z"/>',
+brush:'<path d="M20 4c-5 2-9 6-10.5 10"/><path d="M9.5 14c-2.5 0-4 1.5-4 4 0 1-1 1.8-2 2 3 1 8 .5 8.5-3.2.3-1.4-.5-2.8-2.5-2.8z"/>',
+eraser:'<path d="M4.5 15.5l9-10 6 5.5-8 9H8z"/><path d="M8 20h12M9 8.5l6 5.5"/>',
+grad:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 5v14M12 5v14M16 5v14" opacity=".5"/>',
+bucket:'<path d="M5 12l6-7 7 7-6.5 6.5z"/><path d="M5 12h13"/><path d="M20 15.5c0 1.5-1.2 2.3-1.2 3.4a1.2 1.2 0 0 0 2.4 0c0-1.1-1.2-1.9-1.2-3.4z"/>',
+ai:'<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/>',
+text:'<path d="M5 6V4h14v2M12 4v16M9 20h6"/>',
+shape:'<rect x="4" y="6" width="16" height="12" rx="2"/>',
+hand:'<path d="M8 12V6a1.5 1.5 0 0 1 3 0v5M11 11V4.5a1.5 1.5 0 0 1 3 0V11M14 11V6a1.5 1.5 0 0 1 3 0v8c0 4-2 6-6 6-3 0-4-1.5-6-4l-1.5-2.5a1.5 1.5 0 0 1 2.5-1.5L8 14"/>',
+zoom:'<circle cx="11" cy="11" r="6"/><path d="M16 16l5 5M11 8v6M8 11h6"/>',
+props:'<path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/>',
+adj:'<circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/>',
+layers:'<path d="M12 3l9 5-9 5-9-5z"/><path d="M3 12.5l9 5 9-5M3 16.5l9 5 9-5" opacity=".7"/>',
+hist:'<circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/>',
+stat:'<path d="M4 20V10M9 20V4M14 20v-8M19 20V8"/>',
+undo:'<path d="M9 6L4 11l5 5M4 11h10a5.5 5.5 0 0 1 0 11h-4"/>',redo:'<path d="M15 6l5 5-5 5M20 11H10a5.5 5.5 0 0 0 0 11h4"/>',
+eyeOn:'<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+eyeOff:'<path d="M3 3l18 18M10 6.2C10.6 6.1 11.3 6 12 6c6 0 10 6 10 6s-1.2 1.8-3.2 3.4M6.5 7.6C3.7 9.4 2 12 2 12s4 6 10 6c1.4 0 2.7-.3 3.9-.8"/>',
+plus:'<path d="M12 5v14M5 12h14"/>',trash:'<path d="M5 7h14M10 7V4h4v3M7 7l1 13h8l1-13"/>',dup:'<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M4 16V6a2 2 0 0 1 2-2h10"/>',
+mask:'<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="12" cy="12" r="4.5"/>',up:'<path d="M12 19V5M6 11l6-6 6 6"/>',dn:'<path d="M12 5v14M6 13l6 6 6-6"/>',
+lock:'<rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',check:'<path d="M5 12l5 5 9-10"/>',x:'<path d="M6 6l12 12M18 6L6 18"/>'};
+const ic=(n,s=22)=>`<svg viewBox="0 0 24 24" width="${s}" height="${s}" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${IC[n]}</svg>`;
+const TOOLS=[['move','تحريك'],['-'],['mq','تحديد'],['lasso','تحديد حر'],['wand','العصا السحرية'],['crop','قص'],['eye','قطارة'],['-'],['brush','فرشاة'],['eraser','ممحاة'],['grad','تدرج'],['bucket','سطل'],['-'],['text','نص'],['shape','شكل'],['-'],['hand','يد'],['zoom','تكبير']];
+const FONTS=[['system-ui,"Noto Sans Arabic",Roboto,sans-serif','عادي'],['Georgia,"Noto Naskh Arabic",serif','سيريف'],['"Courier New",monospace','آلة كاتبة'],['Impact,"Arial Black",sans-serif','عريض'],['"Brush Script MT",cursive','خط يدوي']];
+const BM=[['source-over','عادي'],['multiply','ضرب'],['screen','تفتيح'],['overlay','تراكب'],['soft-light','ضوء ناعم'],['hard-light','ضوء حاد'],['darken','أغمق'],['lighten','أفتح'],['color-dodge','تفتيح اللون'],['color-burn','حرق اللون'],['difference','فرق'],['hue','تدرج اللون'],['saturation','التشبع'],['color','اللون'],['luminosity','الإضاءة']];
+const TN={img:'صورة',paint:'بكسل',text:'نص',shape:'شكل'};
+const FXD={sh:{on:1,d:14,a:135,b:14,o:70,col:'#000000'},st:{on:1,size:4,col:'#ffffff'},gl:{on:1,b:30,o:85,col:'#ffd54a'},ov:{on:1,col:'#2f7bf5',o:100}};
+let dTab='ai',dockOpen=false,cch='rgb',hcache=null;
+$('#tools').innerHTML=TOOLS.map(t=>t[0]=='-'?'<div class="tsep"></div>':`<button class="tl" data-a="tool" data-v="${t[0]}" title="${t[1]}">${ic(t[0])}</button>`).join('')+'<div style="flex:1"></div><div id="cols"><i id="cbg" data-a="colbg"></i><i id="cfg" data-a="colfg"></i></div>';
+$('#bu').innerHTML=ic('undo',20);$('#br').innerHTML=ic('redo',20);
+const MENUS={file:['ملف',[['جديد…','new'],['فتح صورة…','open'],['إضافة صورة كطبقة…','addimg'],'-',['تصدير PNG','exp','png'],['تصدير JPG','exp','jpg']]],
+edit:['تحرير',[['تراجع','undo'],['إعادة','redo'],'-',['تعبئة باللون الأمامي','fill','fg'],['تعبئة بلون الخلفية','fill','bg'],['مسح','clear'],'-',['تبديل الألوان','swap'],['الألوان الافتراضية','defcol']]],
+image:['صورة',[['حجم الصورة…','imgsize'],['تدوير 90° يمين','rot','cw'],['تدوير 90° يسار','rot','ccw'],['قلب أفقي','flip','h'],['قلب عمودي','flip','v'],'-',['قص إلى التحديد','cropsel'],['تسطيح الصورة','flatten']]],
+layer:['طبقة',[['طبقة جديدة','newl'],['تكرار الطبقة','dup'],['حذف الطبقة','del'],'-',['دمج لأسفل','merge'],['طبقة من التحديد','sel2l'],'-',['قناع: إظهار الكل','mask','all'],['قناع: من التحديد','mask','sel'],['قناع: إخفاء الكل','mask','none'],['عكس القناع','mask','inv'],['حذف القناع','mask','del'],'-',['إلى الأمام','up'],['إلى الخلف','dn']]],
+type:['نص',[['نص جديد','newtext']]],
+select:['تحديد',[['تحديد الكل','selall'],['إلغاء التحديد','desel'],['عكس التحديد','selinv'],['ريش…','feather']]],
+filter:['فلتر',[['تمويه غاوسي','adj','bl'],['شحذ','adj','sh'],['إضافة ضوضاء','adj','no'],['تبكسل','adj','px'],['تظليل الحواف','adj','vg']]],
+view:['عرض',[['ملاءمة الشاشة','fit'],['100%','z100'],['تكبير','zin'],['تصغير','zout']]],
+help:['مساعدة',[['حول فوتو كرافت','about']]],
+tx:['',[['تصدير PNG (شفافية)','exp','png'],['تصدير JPG (أصغر حجماً)','exp','jpg']]]};
+$('#menus').innerHTML=Object.entries(MENUS).filter(([k])=>k!='tx').map(([k,m])=>`<button data-a="menu" data-v="${k}">${m[0]}</button>`).join('');
+/* ---------- popups & dialogs ---------- */
+function closePop(){$('#pop').style.display='none';$$('#menus button').forEach(b=>b.classList.remove('on'))}
+function openMenu(k){const p=$('#pop');if(p.style.display=='block'&&p.dataset.k==k){closePop();return}closePop();p.dataset.k=k;
+p.innerHTML=MENUS[k][1].filter(i=>i!='-'||0).map(i=>i=='-'?'':`<button data-a="mi" data-v="${i[1]}" data-w="${i[2]||''}" ${!W&&!['new','open','about'].includes(i[1])?'disabled':''}>${i[0]}</button>`).join('');p.style.display='block';
+const b=$(`#menus [data-v="${k}"]`);if(b)b.classList.add('on')}
+function dialog(title,body,btns){const d=$('#dlg');d.innerHTML=`<div class="card"><h3>${title}</h3><div>${body}</div><div class="dbt">${btns.map((b,i)=>`<button class="${b[2]?'p':''}" data-d="${i}">${b[0]}</button>`).join('')}</div></div>`;d.style.display='flex';
+d.onclick=e=>{const t=e.target.closest('[data-d]');if(t){const r=btns[+t.dataset.d][1]&&btns[+t.dataset.d][1]();if(r!==false)closeDlg()}else if(e.target===d)closeDlg()}}
+function closeDlg(){$('#dlg').style.display='none';$('#dlg').innerHTML=''}
+const hsv2=(h,s,v)=>{const f=n=>{const k=(n+h/60)%6;return v-v*s*Math.max(0,Math.min(k,4-k,1))};return[f(5)*255,f(3)*255,f(1)*255]};
+const rgb2hsv=([r,g,b])=>{r/=255;g/=255;b/=255;const mx=Math.max(r,g,b),mn=Math.min(r,g,b),d=mx-mn;let h=0;if(d){h=mx==r?((g-b)/d)%6:mx==g?(b-r)/d+2:(r-g)/d+4;h*=60;if(h<0)h+=360}return[h,mx?d/mx:0,mx]};
+function pickColor(init,cb,done){let[h,s,v]=rgb2hsv(rgb(init));const PAL=['#000000','#ffffff','#808080','#e5484d','#f76b15','#ffc53d','#30a46c','#12a594','#2f7bf5','#6e56cf','#d6409f','#8b5a2b','#c0c0c0','#3b3b3b','#ffd7a8','#a8e6cf'];
+dialog('اختيار اللون',`<canvas id="svc" width="300" height="200"></canvas><input id="hue" type="range" min="0" max="360" value="${h}" style="background:linear-gradient(90deg,red,#ff0,#0f0,#0ff,#00f,#f0f,red);height:14px;border-radius:7px;-webkit-appearance:none;appearance:none"><div class="fr"><span>الرمز</span><input type="text" id="hx" size="8" dir="ltr"><i id="pv" style="width:46px;height:30px;border:1px solid #000"></i></div><div class="pal">${PAL.map(c=>`<i data-c="${c}" style="background:${c}"></i>`).join('')}</div>`,[['تم',()=>done&&done(),1]]);
+const c=$('#svc'),g=c.getContext('2d');
+const cur=()=>'#'+hsv2(h,s,v).map(h2).join('');
+function paint(){g.fillStyle=`hsl(${h},100%,50%)`;g.fillRect(0,0,300,200);let a=g.createLinearGradient(0,0,300,0);a.addColorStop(0,'#fff');a.addColorStop(1,'#fff0');g.fillStyle=a;g.fillRect(0,0,300,200);a=g.createLinearGradient(0,0,0,200);a.addColorStop(0,'#0000');a.addColorStop(1,'#000');g.fillStyle=a;g.fillRect(0,0,300,200);
+g.strokeStyle='#fff';g.lineWidth=2;g.beginPath();g.arc(s*300,(1-v)*200,8,0,7);g.stroke();g.strokeStyle='#000';g.lineWidth=1;g.beginPath();g.arc(s*300,(1-v)*200,9.5,0,7);g.stroke();$('#hx').value=cur();$('#pv').style.background=cur()}
+const emit=()=>{paint();cb(cur())};
+const sv=e=>{const r=c.getBoundingClientRect();s=clamp((e.clientX-r.left)/r.width,0,1);v=1-clamp((e.clientY-r.top)/r.height,0,1);emit()};
+c.onpointerdown=e=>{c.setPointerCapture(e.pointerId);sv(e);c.onpointermove=sv};c.onpointerup=()=>c.onpointermove=null;
+$('#hue').oninput=e=>{h=+e.target.value;emit()};
+$('#hx').onchange=e=>{const m=/^#?([0-9a-f]{6})$/i.exec(e.target.value.trim());if(m){[h,s,v]=rgb2hsv(rgb('#'+m[1]));$('#hue').value=h;emit()}};
+$$('.pal i').forEach(i=>i.onclick=()=>{[h,s,v]=rgb2hsv(rgb(i.dataset.c));$('#hue').value=h;emit()});paint()}
+/* ---------- options bar ---------- */
+const chip=(a,v,t,on)=>`<button class="chip${on?' on':''}" data-a="${a}" data-v="${v}">${t}</button>`;
+const mr=(k,lab,min,max,val,unit='')=>`<div class="og"><span>${lab}</span><input class="mr" type="range" data-k="${k}" min="${min}" max="${max}" value="${val}"><b>${val}${unit}</b></div>`;
+const modes=(t)=>[['new','جديد'],['add','إضافة'],['sub','طرح']].map(([v,n])=>chip('opt',`${t}.mode:${v}`,n,T[t].mode==v)).join('');
+function optsHTML(){switch(tool){
+case'move':return chip('opt',`move.auto:${T.move.auto?0:1}`,'تحديد تلقائي',T.move.auto)+'<span style="color:var(--mu);font-size:12px">اسحب لتحريك الطبقة النشطة</span>';
+case'mq':return chip('opt','mq.shape:r','مستطيل',T.mq.shape=='r')+chip('opt','mq.shape:e','بيضاوي',T.mq.shape=='e')+'<div class="sep"></div>'+modes('mq');
+case'lasso':return modes('lasso')+'<span style="color:var(--mu);font-size:12px">ارسم حول المنطقة</span>';
+case'wand':return mr('T.wand.tol','التسامح',0,100,T.wand.tol)+chip('opt',`wand.contig:${T.wand.contig?0:1}`,'متجاورة',T.wand.contig)+'<div class="sep"></div>'+modes('wand');
+case'crop':return'<button class="chip on" data-a="cropok">تطبيق</button><button class="chip d" data-a="cropno">إلغاء</button><div class="sep"></div>'+[['free','حر'],['orig','الأصلية'],['1:1','1:1'],['4:5','4:5'],['3:4','3:4'],['16:9','16:9'],['9:16','9:16']].map(([v,n])=>chip('ratio',v,n,T.crop.ratio==v)).join('');
+case'eye':return chip('opt','eye.bg:0','اللون الأمامي',!T.eye.bg)+chip('opt','eye.bg:1','لون الخلفية',!!T.eye.bg);
+case'brush':case'eraser':{const o=T[tool];return mr(`T.${tool}.size`,'الحجم',1,300,o.size)+mr(`T.${tool}.hard`,'الحدة',0,100,o.hard,'%')+mr(`T.${tool}.op`,'التعتيم',1,100,o.op,'%')}
+case'grad':return chip('opt','grad.type:lin','خطي',T.grad.type=='lin')+chip('opt','grad.type:rad','دائري',T.grad.type=='rad')+chip('opt',`grad.rev:${T.grad.rev?0:1}`,'عكس',T.grad.rev);
+case'bucket':return mr('T.bucket.tol','التسامح',0,100,T.bucket.tol);
+case'text':return mr('T.text.sz','الحجم',10,600,T.text.sz)+chip('opt',`text.b:${T.text.b?0:1}`,'عريض',T.text.b)+'<span style="color:var(--mu);font-size:12px">اضغط على الصورة لإضافة نص</span>';
+case'shape':return chip('opt','shape.kind:r','مستطيل',T.shape.kind=='r')+chip('opt','shape.kind:rr','مستدير',T.shape.kind=='rr')+chip('opt','shape.kind:e','بيضاوي',T.shape.kind=='e')+'<span style="color:var(--mu);font-size:12px">اسحب لرسم الشكل</span>';
+case'hand':return chip('fit','','ملاءمة الشاشة')+chip('z100','','100%');
+case'zoom':return chip('opt','zoom.out:0','تكبير +',!T.zoom.out)+chip('opt','zoom.out:1','تصغير −',!!T.zoom.out)+chip('fit','','ملاءمة')}return''}
+/* ---------- dock panels ---------- */
+const sl=(k,lab,a,b,dv=1)=>{const v=getK(k)??0;return`<div class="rg"><span>${lab}</span><input type="range" data-k="${k}" min="${a}" max="${b}" step="1" value="${v}"><b>${dv>1?(v/dv).toFixed(2):Math.round(v)}</b></div>`};
+const swt=(k,lab)=>`<div class="rg"><span>${lab}</span><button class="sw" data-a="col" data-v="${k}" style="background:${getK(k)}"></button></div>`;
+const ckb=(k,lab)=>`<div class="rg"><span>${lab}</span><input type="checkbox" data-k="${k}" ${getK(k)?'checked':''}></div>`;
+const sel2=(k,lab,arr)=>`<div class="rg"><span>${lab}</span><select data-k="${k}" style="flex:1">${arr.map(([v,n])=>`<option value="${v}"${getK(k)==v?' selected':''}>${n}</option>`).join('')}</select></div>`;
+function getK(k){if(k.startsWith('T.')){const[,a,b]=k.split('.');return T[a][b]}if(k=='sp')return Math.round(act.s*100);if(k=='rd')return Math.round(act.r*180/Math.PI);return k.split('.').reduce((o,i)=>o==null?o:o[i],act)}
+function setK(k,v){if(k.startsWith('T.')){const[,a,b]=k.split('.');T[a][b]=v;return}if(k=='sp'){act.s=v/100;return}if(k=='rd'){act.r=v*Math.PI/180;return}const a=k.split('.'),last=a.pop();let o=act;for(const i of a){if(o[i]==null)o[i]={};o=o[i]}o[last]=v}
+function layersHTML(){const a=act;
+const head=`<div class="lh"><select data-k="bm" ${a?'':'disabled'}>${BM.map(([v,n])=>`<option value="${v}"${a&&a.bm==v?' selected':''}>${n}</option>`).join('')}</select><span style="color:var(--mu)">الشفافية</span><input type="range" data-k="o" min="0" max="100" value="${a?a.o:100}" ${a?'':'disabled'}><b>${a?a.o:100}%</b></div>`;
+const rows=[...L].reverse().map(l=>`<div class="lr${l===act?' on':''}" data-a="sel" data-v="${l.id}"><span class="ev" data-a="vis" data-v="${l.id}">${ic(l.v?'eyeOn':'eyeOff',20)}</span><canvas class="th" width="34" height="34" data-th="${l.id}"></canvas>${l.m?`<canvas class="th mt${l===act&&editMask?' on':''}" width="34" height="34" data-mt="${l.id}" data-a="maskedit" data-v="${l.id}"></canvas>`:''}<div class="ln"><b>${esc(l.n)}</b><small>${l.t=='adj'?ADJ[l.kind].n:TN[l.t]}${l.lk?' · مقفلة':''}</small></div>${hasFx(l)?'<em>fx</em>':''}</div>`).join('');
+const B=(a,i,t)=>`<button class="ib" data-a="${a}" title="${t}">${ic(i,20)}</button>`;
+return`${head}<div class="ll">${rows||'<div style="padding:20px;color:var(--mu)">لا توجد طبقات</div>'}</div><div class="lb">${B('newl','plus','طبقة جديدة')}${B('tabadj','adj','طبقة ضبط')}${B('maskbtn','mask','قناع')}${B('dup','dup','تكرار')}${B('up','up','للأعلى')}${B('dn','dn','للأسفل')}${B('del','trash','حذف')}</div>`}
+function fxHTML(l){const f=l.fx||{};const row=(k,n,body)=>`<div class="rg"><span style="font-weight:600;color:var(--tx)">${n}</span><input type="checkbox" data-a="fxt" data-v="${k}" ${f[k]&&f[k].on?'checked':''}></div>${f[k]&&f[k].on?body:''}`;
+return`<details${hasFx(l)?' open':''}><summary>أنماط الطبقة (fx)</summary>${row('sh','ظل منسدل',sl('fx.sh.d','المسافة',0,120)+sl('fx.sh.a','الزاوية',0,360)+sl('fx.sh.b','التمويه',0,80)+sl('fx.sh.o','الشفافية',0,100)+swt('fx.sh.col','اللون'))}${row('st','حد خارجي',sl('fx.st.size','الحجم',1,40)+swt('fx.st.col','اللون'))}${row('gl','توهج خارجي',sl('fx.gl.b','الحجم',1,100)+sl('fx.gl.o','الشفافية',0,100)+swt('fx.gl.col','اللون'))}${row('ov','تراكب لوني',sl('fx.ov.o','الشفافية',0,100)+swt('fx.ov.col','اللون'))}</details>`}
+function propsHTML(){const l=act;if(!l)return'<div class="pn" style="color:var(--mu)">لا توجد طبقة نشطة. افتح صورة أو أضف طبقة.</div>';
+let h=`<div class="ph"><input type="text" data-k="n" value="${esc(l.n)}" style="flex:1"></div>`;
+if(l.t=='adj'){const k=l.kind;if(k=='cu')h+=curvesHTML();else if(k=='pre')h+=sl('k','الشدة',0,100);else{if(k=='lv')h+='<canvas class="hg" id="lvh" width="256" height="70"></canvas>';h+=ADJ[k].sl.map(([p,n,a,b,st,dv])=>sl('p.'+p,n,a,b,dv||1)).join('');if(!ADJ[k].sl.length)h+='<div style="color:var(--mu);padding:6px 0">لا توجد إعدادات</div>'}}
+if(l.t=='text')h+=`<textarea data-k="p.tx" rows="2">${esc(l.p.tx)}</textarea>`+sl('p.sz','حجم الخط',8,600)+swt('p.col','اللون')+sel2('p.f','الخط',FONTS)+ckb('p.b','عريض')+ckb('p.i','مائل');
+if(l.t=='shape')h+=sel2('p.k','الشكل',[['r','مستطيل'],['e','بيضاوي']])+swt('p.col','اللون')+sl('p.w','العرض',4,3000)+sl('p.h','الارتفاع',4,3000)+(l.p.k=='r'?sl('p.rd','تدوير الزوايا',0,400):'');
+if(['img','text','shape'].includes(l.t))h+=sl('sp','الحجم %',5,400)+sl('rd','التدوير °',-180,180);
+h+='<details'+(l.m?' open':'')+'><summary>القناع</summary><div class="btns">'+(l.m?chip('maskedit',l.id,'تحرير القناع',editMask)+chip('mask','inv','عكس')+chip('mask','del','حذف')+chip('mask','apply','تطبيق'):chip('mask','all','إضافة قناع')+(selM?chip('mask','sel','من التحديد'):''))+'</div></details>';
+if(l.t!='adj')h+=fxHTML(l);
+h+=`<div class="rg" style="margin-top:10px"><span>قفل الطبقة</span><input type="checkbox" data-k="lk" ${l.lk?'checked':''}></div>`;
+return`<div class="pn">${h}</div>`}
+function adjHTML(){return`<div class="pn"><div class="gr">${Object.entries(ADJ).filter(([k])=>k!='pre'&&!['bl','sh','no','px'].includes(k)).map(([k,a])=>`<button class="gt" data-a="adj" data-v="${k}">${ic('adj',22)}${a.n}</button>`).join('')}</div><div class="ph" style="margin-top:14px">فلاتر جاهزة</div><div class="btns">${Object.keys(PR).map(k=>chip('pre',k,k)).join('')}</div><div class="ph" style="margin-top:6px">مرشحات</div><div class="btns">${['bl','sh','no','px'].map(k=>chip('adj',k,ADJ[k].n)).join('')}</div></div>`}
+function histHTML(){return`<div class="pn">${HS.map((h,i)=>`<div class="hl${i==hi?' on':''}${i>hi?' fu':''}" data-a="jump" data-v="${i}">${esc(h.label)}</div>`).reverse().join('')}</div>`}
+function statHTML(){return`<div class="pn"><canvas class="hg" id="sth" width="300" height="130"></canvas><div id="stt" style="margin-top:8px;color:var(--mu);font-size:12px"></div></div>`}
+function curvesHTML(){return`<div class="btns" style="margin-top:0">${[['rgb','RGB'],['r','أحمر'],['g','أخضر'],['b','أزرق']].map(([v,n])=>chip('cch',v,n,cch==v)).join('')}${chip('cureset','','إعادة ضبط')}</div><canvas class="hg" id="cve" width="256" height="256" style="max-width:210px;margin:auto"></canvas><div style="color:var(--mu);font-size:11px;margin-top:4px">المس المنحنى لإضافة نقطة، اسحب لتحريكها، انقر مرتين لحذفها.</div>`}
+function dockHTML(){return{ai:aiHTML,layers:layersHTML,props:propsHTML,adj:adjHTML,hist:histHTML,stat:statHTML}[dTab]()}
+const DT=[['ai','المساعد'],['props','الخصائص'],['adj','التعديلات'],['layers','الطبقات'],['hist','السجل'],['stat','المدرج']];
+$('#dtabs').innerHTML=DT.map(([k,n])=>`<button data-a="dtab" data-v="${k}" title="${n}">${ic(k=='stat'?'stat':k)}</button>`).join('');
+function drawThumbs(){for(const c of $$('canvas[data-th]')){const l=L.find(x=>x.id==c.dataset.th);if(!l)continue;const g=c.getContext('2d');g.clearRect(0,0,34,34);
+if(l.t=='adj'){g.fillStyle='#555';g.fillRect(0,0,34,34);g.fillStyle='#ddd';g.beginPath();g.arc(17,17,9,0,7);g.stroke();g.strokeStyle='#ddd';g.lineWidth=2;g.stroke();g.beginPath();g.arc(17,17,9,-Math.PI/2,Math.PI/2);g.fill()}
+else if(l.t=='text'){g.fillStyle='#eee';g.fillRect(0,0,34,34);g.fillStyle='#222';g.font='bold 22px serif';g.textAlign='center';g.textBaseline='middle';g.fillText('T',17,18)}
+else if(W){const f=34/Math.max(W,H);g.save();g.translate((34-W*f)/2,(34-H*f)/2);g.scale(f,f);lcontent(g,l);g.restore()}}
+for(const c of $$('canvas[data-mt]')){const l=L.find(x=>x.id==c.dataset.mt);if(!l||!l.m)continue;const g=c.getContext('2d');g.fillStyle='#000';g.fillRect(0,0,34,34);const f=34/Math.max(W,H);g.save();g.translate((34-W*f)/2,(34-H*f)/2);g.scale(f,f);g.drawImage(l.m,0,0);g.restore()}}
+function drawHistCanvas(c,hh,chs){const g=c.getContext('2d'),w=c.width,h=c.height;g.clearRect(0,0,w,h);g.fillStyle='#1d1d1d';g.fillRect(0,0,w,h);if(!hh)return;
+const cols={y:'#bbb',r:'#e5484d',g:'#30a46c',b:'#2f7bf5'};let mx=1;for(const k of chs)for(let i=2;i<254;i++)mx=Math.max(mx,hh[k][i]);
+g.globalAlpha=chs.length>1?.55:.8;for(const k of chs){g.fillStyle=cols[k];g.beginPath();g.moveTo(0,h);for(let i=0;i<256;i++)g.lineTo(i/255*w,h-Math.min(1,hh[k][i]/mx)*h*.95);g.lineTo(w,h);g.fill()}g.globalAlpha=1}
+function getHist(){if(!hcache||hcache.v!=HS.length+':'+hi){hcache={v:HS.length+':'+hi,h:hist(flat())}}return hcache.h}
+function drawCurves(){const c=$('#cve');if(!c||!act||act.kind!='cu')return;const g=c.getContext('2d'),pts=act.p.cv[cch];drawHistCanvas(c,getHist(),cch=='rgb'?['y']:[cch]);
+g.strokeStyle='#ffffff22';g.lineWidth=1;for(let i=1;i<4;i++){g.beginPath();g.moveTo(i*64,0);g.lineTo(i*64,256);g.moveTo(0,i*64);g.lineTo(256,i*64);g.stroke()}
+const lut=curveLUT(pts);g.strokeStyle={rgb:'#fff',r:'#ff6b70',g:'#4cd68b',b:'#6aa3ff'}[cch];g.lineWidth=2;g.beginPath();for(let i=0;i<256;i++)g[i?'lineTo':'moveTo'](i,255-lut[i]);g.stroke();
+g.fillStyle='#fff';g.strokeStyle='#000';for(const p of pts){g.beginPath();g.arc(p[0],255-p[1],5,0,7);g.fill();g.stroke()}}
+function bindCurves(){const c=$('#cve');if(!c)return;let di=-1,lastT=0;
+const pos=e=>{const r=c.getBoundingClientRect();return[clamp((e.clientX-r.left)/r.width*255,0,255),clamp(255-(e.clientY-r.top)/r.height*255,0,255)]};
+c.onpointerdown=e=>{c.setPointerCapture(e.pointerId);const pts=act.p.cv[cch],[x,y]=pos(e);let best=-1,bd=16;pts.forEach((p,i)=>{const d=Math.hypot(p[0]-x,p[1]-y);if(d<bd){bd=d;best=i}});
+const now=Date.now();if(best>0&&best<pts.length-1&&now-lastT<350){pts.splice(best,1);lastT=0;di=-1;q();drawCurves();commit('حذف نقطة منحنى');return}lastT=now;
+if(best<0){pts.push([Math.round(x),Math.round(y)]);pts.sort((a,b)=>a[0]-b[0]);best=pts.findIndex(p=>p[0]==Math.round(x)&&p[1]==Math.round(y))}di=best;drawCurves()};
+c.onpointermove=e=>{if(di<0)return;const pts=act.p.cv[cch],[x,y]=pos(e);const lo=di>0?pts[di-1][0]+1:0,hi2=di<pts.length-1?pts[di+1][0]-1:255;pts[di]=[(di==0||di==pts.length-1)?pts[di][0]:clamp(Math.round(x),lo,hi2),Math.round(y)];q();drawCurves()};
+c.onpointerup=()=>{if(di>=0){di=-1;commit('منحنيات')}}}
+function afterDock(){if(dTab=='ai'){const l=$('#ailog');if(l)l.scrollTop=l.scrollHeight}if(dTab=='layers')drawThumbs();
+if(dTab=='props'&&act&&act.t=='adj'){if(act.kind=='cu'){drawCurves();bindCurves()}if(act.kind=='lv'){const c=$('#lvh');if(c)drawHistCanvas(c,getHist(),['y'])}}
+if(dTab=='stat'&&W){const hh=getHist();drawHistCanvas($('#sth'),hh,['r','g','b']);let n=0,s=0;for(let i=0;i<256;i++){n+=hh.y[i];s+=hh.y[i]*i}const m=s/n;let v=0,acc=0,med=0;for(let i=0;i<256;i++){v+=hh.y[i]*(i-m)**2;acc+=hh.y[i];if(!med&&acc>=n/2)med=i}
+$('#stt').innerHTML=`المتوسط: ${m.toFixed(1)} &nbsp; الانحراف: ${Math.sqrt(v/n).toFixed(1)} &nbsp; الوسيط: ${med} &nbsp; البكسلات: ${n}`}}
+/* ---------- ui refresh ---------- */
+function swatches(){$('#cfg').style.background=fg;$('#cbg').style.background=bgc}
+function status(){const s=$('#status');if(!W){s.textContent='';return}s.innerHTML=`<span>${Math.round(view.k*100)}%</span><span>RGB/8</span><span>${W} × ${H} px</span><span>${L.length} طبقات</span>`;$('#tab span').textContent=`${docName} @ ${Math.round(view.k*100)}% (${act?act.n+(editMask?'/قناع':''):'—'}, RGB/8)${hi>0?' *':''}`}
+function ui(){const ae=document.activeElement;if(ae&&ae.closest&&ae.closest('#dock,#opts')&&ae.blur)ae.blur();$('#start').style.display=W?'none':'flex';$$('.tl').forEach(b=>b.classList.toggle('on',b.dataset.v==tool));$('#opts').innerHTML=optsHTML();
+$('#dock').classList.toggle('open',dockOpen);$$('#dtabs button').forEach(b=>b.classList.toggle('on',b.dataset.v==dTab&&(dockOpen||landscape())));
+if(dockOpen||landscape()){$('#dbody').innerHTML=dockHTML();afterDock()}
+$('#bu').disabled=hi<=0;$('#br').disabled=hi>=HS.length-1;swatches();status();updateBox();crShow()}
+const landscape=()=>matchMedia('(orientation:landscape) and (max-height:540px)').matches;
+function setTool(t){if(tool=='crop'&&t!='crop'){cr=null;crShow()}tool=t;ovClear();drawAnts();if(t=='crop'&&W)crFit();ui()}
+/* ---------- actions ---------- */
+function addAdj(k,pr,params){if(!W)return;const sm=selM;const l=addL({t:'adj',kind:k,n:pr?'فلتر '+pr:ADJ[k].n,p:pr?{...PR[pr]}:{...cp(ADJ[k].def),...(params||{})},k:100});if(sm)l.m=cl(sm);draw();if(dTab!='ai')dTab='props';dockOpen=true;commit('طبقة ضبط: '+l.n)}
+function maskOp(v){const l=act;if(!l)return;
+if(v=='all'||v=='none'||v=='sel'){if(v=='sel'&&!selM){toast('لا يوجد تحديد');return}l.m=newMask(v);editMask=true;draw();commit('إضافة قناع')}
+else if(v=='del'){l.m=null;editMask=false;draw();commit('حذف القناع')}
+else if(v=='inv'&&l.m){const c=mk(W,H),g=c.getContext('2d');g.fillStyle='#fff';g.fillRect(0,0,W,H);g.globalCompositeOperation='destination-out';g.drawImage(l.m,0,0);l.m=c;draw();commit('عكس القناع')}
+else if(v=='apply'&&l.m){if(l.t=='adj'){toast('لا يمكن تطبيق قناع على طبقة ضبط');return}rasterize(l);l.c=cl(l.c);const g=l.c.getContext('2d');g.globalCompositeOperation='destination-in';g.drawImage(l.m,0,0);l.m=null;editMask=false;draw();commit('تطبيق القناع')}}
+function dlgNew(){const P=[['1080×1080','1080,1080'],['1080×1350','1080,1350'],['1080×1920','1080,1920'],['1920×1080','1920,1080'],['2048×1536','2048,1536']];
+dialog('مستند جديد',`<div class="btns">${P.map(([n,v])=>`<button class="chip" data-p="${v}">${n}</button>`).join('')}</div><div class="fr"><span>العرض</span><input type="number" id="nw" value="1080" min="16" max="${MAXD}"></div><div class="fr"><span>الارتفاع</span><input type="number" id="nh" value="1080" min="16" max="${MAXD}"></div><div class="fr"><span>الخلفية</span><select id="nb"><option value="white">أبيض</option><option value="black">أسود</option><option value="none">شفافة</option></select></div>`,[['إلغاء'],['إنشاء',()=>{newDoc(clamp(+$('#nw').value||1080,16,MAXD),clamp(+$('#nh').value||1080,16,MAXD),$('#nb').value);dockOpen=false;ui()},1]]);
+$$('[data-p]').forEach(b=>b.onclick=()=>{const[w,h]=b.dataset.p.split(',');$('#nw').value=w;$('#nh').value=h})}
+function dlgSize(){const r=W/H;dialog('حجم الصورة',`<div class="fr"><span>العرض</span><input type="number" id="iw" value="${W}"></div><div class="fr"><span>الارتفاع</span><input type="number" id="ih" value="${H}"></div><div class="fr"><span>نسبة ثابتة</span><input type="checkbox" id="ir" checked></div>`,[['إلغاء'],['تطبيق',()=>{const w=clamp(+$('#iw').value|0,16,MAXD),h=clamp(+$('#ih').value|0,16,MAXD);resizeDoc(w,h)},1]]);
+$('#iw').oninput=()=>{if($('#ir').checked)$('#ih').value=Math.round($('#iw').value/r)};$('#ih').oninput=()=>{if($('#ir').checked)$('#iw').value=Math.round($('#ih').value*r)}}
+function dlgFeather(){dialog('ريش التحديد',`<div class="rg"><span>نصف القطر</span><input type="range" id="fr" min="1" max="60" value="8" style="flex:1"><b id="fv">8</b></div>`,[['إلغاء'],['تطبيق',()=>{if(!selM){toast('لا يوجد تحديد');return}const r=+$('#fr').value,d=selM.getContext('2d').getImageData(0,0,W,H);blur(d,r);const c=mk(W,H);c.getContext('2d').putImageData(d,0,0);setSel(c,'ريش')},1]]);$('#fr').oninput=e=>$('#fv').textContent=e.target.value}
+async function exportImg(fmt){if(!W)return;let c=cv;if(fmt=='jpg'){c=mk(W,H);const g=c.getContext('2d');g.fillStyle='#fff';g.fillRect(0,0,W,H);g.drawImage(cv,0,0)}
+const mime=fmt=='png'?'image/png':'image/jpeg',b=await new Promise(r=>c.toBlob(r,mime,.92)),name='PhotoCraft-'+Date.now()+'.'+fmt;
+if(window.AndroidBridge){const fr=new FileReader();fr.onload=()=>{const ok=AndroidBridge.save(fr.result.split(',')[1],name,mime);toast(ok?'تم الحفظ في معرض الصور ✓':'تعذر الحفظ')};fr.readAsDataURL(b);return}
+try{const f=new File([b],name,{type:mime});if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f]});return}}catch(e){if(e&&e.name=='AbortError')return}
+const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;document.body.appendChild(a);a.click();a.remove();toast('تم التصدير ✓')}
+function runAct(a,v,w){if(!W&&!['new','open','about','menu','mi','tool','dtab'].includes(a))return;
+switch(a){
+case'menu':openMenu(v);break;
+case'mi':closePop();runAct(v,w);break;
+case'tool':setTool(v);break;
+case'opt':{const[p,val]=v.split(':'),[t,k]=p.split('.');T[t][k]=isNaN(val)?val:+val;ui();break}
+case'ratio':T.crop.ratio=v;crFit();crShow();ui();break;
+case'cropok':applyCrop();break;case'cropno':setTool('move');break;
+case'cropsel':if(!selM)toast('لا يوجد تحديد');else{const d=selM.getContext('2d').getImageData(0,0,W,H).data;let x0=W,y0=H,x1=0,y1=0;for(let y=0;y<H;y++)for(let x=0;x<W;x++)if(d[(y*W+x)*4+3]>127){if(x<x0)x0=x;if(x>x1)x1=x;if(y<y0)y0=y;if(y>y1)y1=y}cropDoc(x0,y0,x1-x0+1,y1-y0+1);selM=null;edge=null;drawAnts();commit('قص إلى التحديد')}break;
+case'undo':undo();break;case'redo':redo();break;case'jump':jump(+v);break;
+case'new':closePop();dlgNew();break;
+case'open':closePop();fmode='open';$('#fi').click();break;
+case'addimg':closePop();fmode='add';$('#fi').click();break;
+case'exp':exportImg(v);break;
+case'fill':fillSel(v=='fg'?fg:bgc);break;case'clear':clearSel();break;
+case'swap':[fg,bgc]=[bgc,fg];swatches();break;case'defcol':fg='#000000';bgc='#ffffff';swatches();break;
+case'imgsize':dlgSize();break;case'rot':if(v=='180'){rot90(true);rot90(true)}else rot90(v=='cw');break;case'flip':flipDoc(v=='h');break;case'flatten':flatten();break;
+case'newl':addL({t:'paint',n:'طبقة '+(++nameN),c:mk(W,H)});draw();commit('طبقة جديدة');break;
+case'dup':if(act){const n={...act,id:uid++,n:act.n+' نسخة',p:cp(act.p),fx:cp(act.fx)};if(n.c)n.c=cl(n.c);if(n.m)n.m=cl(n.m);L.splice(L.indexOf(act)+1,0,n);act=n;draw();commit('تكرار الطبقة')}break;
+case'del':if(act){const i=L.indexOf(act);L=L.filter(l=>l!==act);act=L[Math.min(i,L.length-1)]||null;editMask=false;draw();commit('حذف الطبقة')}break;
+case'up':case'dn':{const i=L.indexOf(act),j=i+(a=='up'?1:-1);if(act&&j>=0&&j<L.length){[L[i],L[j]]=[L[j],L[i]];draw();commit('ترتيب الطبقات')}break}
+case'merge':mergeDown();break;case'sel2l':selToLayer();break;
+case'mask':maskOp(v||w);break;case'maskbtn':maskOp(selM?'sel':'all');break;
+case'maskedit':{const l=L.find(x=>x.id==v);if(l){if(act===l&&l.m)editMask=!editMask;else{act=l;editMask=!!l.m}ui()}break}
+case'sel':act=L.find(l=>l.id==v);editMask=false;ui();break;
+case'vis':{const l=L.find(x=>x.id==v);l.v=l.v?0:1;draw();commit(l.v?'إظهار الطبقة':'إخفاء الطبقة');break}
+case'selall':setSel(maskFromPath(g=>g.fillRect(0,0,W,H)),'تحديد الكل');break;
+case'desel':if(selM)setSel(null,'إلغاء التحديد');break;
+case'selinv':{const c=mk(W,H),g=c.getContext('2d');g.fillStyle='#fff';g.fillRect(0,0,W,H);if(selM){g.globalCompositeOperation='destination-out';g.drawImage(selM,0,0)}setSel(c,'عكس التحديد');break}
+case'feather':dlgFeather();break;
+case'adj':addAdj(v);break;case'pre':addAdj('pre',v);break;case'tabadj':dTab='adj';dockOpen=true;ui();break;
+case'newtext':setTool('text');toast('اضغط على الصورة لإضافة نص');break;
+case'fit':zoomed=false;fit();break;case'z100':{const r=stage.getBoundingClientRect();zoomAt(1,r.width/2,r.height/2);break}
+case'zin':case'zout':{const r=stage.getBoundingClientRect();zoomAt(view.k*(a=='zin'?1.5:.67),r.width/2,r.height/2);break}
+case'about':dialog('فوتو كرافت للجوال','<p style="line-height:1.7;margin:0">محرر صور للهاتف مستوحى من تطبيق PhotoCraft مفتوح المصدر (MIT / Apache-2.0): طبقات، أقنعة، تحديدات، طبقات ضبط غير مدمِّرة، منحنيات، أنماط طبقات ونصوص.</p>',[['إغلاق',null,1]]);break;
+case'dtab':if(dTab==v&&dockOpen&&!landscape())dockOpen=false;else{dTab=v;dockOpen=true}ui();break;
+case'col':pickColor(getK(v),c=>{setK(v,c);q();const b=$(`[data-v="${v}"].sw`);if(b)b.style.background=c},()=>{commit('تغيير اللون');ui()});break;
+case'colfg':pickColor(fg,c=>{fg=c;swatches()});break;case'colbg':pickColor(bgc,c=>{bgc=c;swatches()});break;
+case'fxt':{const l=act;l.fx=l.fx||{};if(!l.fx[v])l.fx[v]=cp(FXD[v]);else l.fx[v].on=l.fx[v].on?0:1;draw();commit('نمط الطبقة');break}
+case'cch':cch=v;ui();break;
+case'aisend':aiRun($('#aiq')?$('#aiq').value:aiDraft);break;case'aiex':aiRun(v);break;case'aiset':aiDialog();break;
+case'cureset':act.p.cv[cch]=[[0,0],[255,255]];q();commit('إعادة ضبط المنحنى');break}}
+document.addEventListener('click',e=>{const t=e.target.closest('[data-a]');if(t){e.stopPropagation();runAct(t.dataset.a,t.dataset.v,t.dataset.w)}else if(!e.target.closest('#pop'))closePop()});
+function onField(e,end){const t=e.target,k=t.dataset.k;if(!k||!t.isConnected)return;if(k.startsWith('T.')){if(t.type=='range'){setK(k,+t.value);t.nextElementSibling.textContent=t.value+(k.endsWith('.hard')||k.endsWith('.op')?'%':'')}return}
+if(!act)return;const v=t.type=='checkbox'?+t.checked:t.type=='range'?+t.value:t.value;setK(k,v);
+if(t.type=='range'){const dv=(ADJ[act.kind]&&ADJ[act.kind].sl.find(s=>'p.'+s[0]==k)||[])[5]||1;t.nextElementSibling.textContent=k=='o'?v+'%':dv>1?(v/dv).toFixed(2):Math.round(v)}
+if(k=='n'||k=='lk'){if(end){commit('تعديل');}return}
+q();if(end){commit(k=='bm'?'وضع المزج':k=='o'?'الشفافية':k=='p.tx'?'تحرير النص':'تعديل الخصائص');if(t.type!='range'&&t.type!='textarea')ui()}}
+document.addEventListener('input',e=>onField(e,false));document.addEventListener('change',e=>onField(e,true));
+/* ---------- files ---------- */
+let fmode='open';
+$('#fi').onchange=async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;try{const c=await loadImg(f);if(fmode=='open'||!W){openImage(c,f.name);dockOpen=false;dTab='adj';ui()}else{addImageLayer(c,f.name.replace(/\.[^.]+$/,''))}}catch(err){toast('تعذر فتح الصورة')}};
+/* ---------- keys (desktop) & back ---------- */
+document.addEventListener('keydown',e=>{if(/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;const k=e.key.toLowerCase();
+if((e.ctrlKey||e.metaKey)&&k=='z'){e.preventDefault();e.shiftKey?redo():undo();return}
+const map={v:'move',m:'mq',l:'lasso',w:'wand',c:'crop',i:'eye',b:'brush',e:'eraser',g:'grad',k:'bucket',t:'text',u:'shape',h:'hand',z:'zoom'};
+if(map[k]&&!e.ctrlKey&&!e.metaKey)setTool(map[k]);else if(k=='x'){[fg,bgc]=[bgc,fg];swatches()}else if(k=='d'){fg='#000000';bgc='#ffffff';swatches()}
+else if(k=='delete'||k=='backspace'){if(selM)clearSel()}else if(k=='['||k==']'){const o=T[tool];if(o&&o.size){o.size=clamp(Math.round(o.size*(k=='['?.8:1.25)),1,300);ui()}}});
+window.onBack=()=>{if($('#dlg').style.display=='flex'){closeDlg();return true}if($('#pop').style.display=='block'){closePop();return true}if(tool=='crop'){setTool('move');return true}if(dockOpen&&!landscape()){dockOpen=false;ui();return true}return false};
+/* ---------- init ---------- */
+$('#doc').style.width='0px';ui();
+
+</script></body></html>
